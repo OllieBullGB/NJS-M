@@ -1,23 +1,22 @@
-#ifndef NJSPINGAPP_NJSPINGAPP_H_
-#define NJSPINGAPP_NJSPINGAPP_H_
+#ifndef SNRPINGAPP_SNRPINGAPP_H_
+#define SNRPINGAPP_SNRPINGAPP_H_
 
 #include <omnetpp.h>
 #include "inet/common/INETDefs.h"
 #include "inet/common/INETUtils.h"
 #include "inet/mobility/contract/IMobility.h"
 #include "inet/physicallayer/contract/packetlevel/IRadio.h"
+#include "inet/physicallayer/contract/packetlevel/IRadioMedium.h"
 #include "inet/applications/base/ApplicationBase.h"
 #include "inet/applications/pingapp/PingApp.h"
+#include "inet/linklayer/ieee80211/mac/Ieee80211Mac.h"
 
-#include "../NJSState/NJSState.h"
-#include "../NJSJammerApp/NJSJammerApp.h"
-#include "../NJSReport/NJSReportElement.h"
-#include "../NJSLoggingApp/NJSLoggingApp.h"
-#include "../NJSLegacyLoggingApp/NJSLegacyLoggingApp.h"
+#include "./SNRReportElement.h"
+#include "../SNRLoggingApp/SNRLoggingApp.h"
 
 using namespace inet;
 
-class NJSPingApp : public PingApp
+class SNRPingApp : public PingApp
 {
     protected:
         IMobility *mobility = nullptr;
@@ -31,27 +30,29 @@ class NJSPingApp : public PingApp
         const char* connectedRSU;
         const char* jammerName;
 
-        std::vector<NJSReportElement> reportElements;
+        double rsuRadioTransmissionPower;
+        double vehicleRadioTransmissionPower;
+        double jammerRadioTransmissionPower;
+
+        std::vector<SNRReportElement> reportElements;
 
         virtual void handleMessageWhenUp(cMessage *msg) override;
         virtual void initialize(int stage) override;
+
         virtual void logState();
+        virtual void sendToRSU(std::vector<SNRReportElement> report, const char* rsuName);
+        virtual int getCurrentTransmissionState();
+        virtual double getTransmissionStrength(double initialTransmissionPower, double distance, double frequency, double systemLoss, double alpha, double propagationSpeed);
 
         virtual Coord getCurrentPosition();
-        virtual int getCurrentNJSState();
-
-        virtual void sendToRSU(std::vector<NJSReportElement> report, const char* rsuName);
-
         virtual void listSubmodules(cModule *module);
-
         virtual double calculateDistanceTo(const char* nodeName);
-        virtual int isJammedBy(const char* jammerName);
 
     public:
-        NJSPingApp();
-        virtual ~NJSPingApp();
+        SNRPingApp();
+        virtual ~SNRPingApp();
 };
 
 
 
-#endif /* NJSPINGAPP_NJSPINGAPP_H_ */
+#endif /* SNRPINGAPP_SNRPINGAPP_H_ */

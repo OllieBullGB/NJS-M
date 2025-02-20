@@ -1,20 +1,20 @@
-#include "NJSPingApp.h"
+#include "SNRPingApp.h"
 
 
-Define_Module(NJSPingApp);
+Define_Module(SNRPingApp);
 
-NJSPingApp::NJSPingApp()
+SNRPingApp::SNRPingApp()
 {
     stateCheckTimer = nullptr;
     mobility = nullptr;
 }
 
-NJSPingApp::~NJSPingApp()
+SNRPingApp::~SNRPingApp()
 {
     cancelAndDelete(stateCheckTimer);
 }
 
-void NJSPingApp::initialize(int stage)
+void SNRPingApp::initialize(int stage)
 {
     PingApp::initialize(stage);
 
@@ -59,15 +59,19 @@ void NJSPingApp::initialize(int stage)
 
         stateCheckTimer = new cMessage("checkStateTimer");
         scheduleAt(simTime() + logInterval, stateCheckTimer);
+
+        rsuRadioTransmissionPower = par("rsuRadioTransmissionPower");
+        vehicleRadioTransmissionPower = par("vehicleRadioTransmissionPower");
+        jammerRadioTransmissionPower = par("jammerRadioTransmissionPower");
     }
 
     bubble("Initialised!");
-    EV << "NJS Ping App Successfully Init" << endl;
+    EV << "SNR Ping App Successfully Init" << endl;
 }
 
-void NJSPingApp::handleMessageWhenUp(cMessage *msg)
+void SNRPingApp::handleMessageWhenUp(cMessage *msg)
 {
-    EV_INFO << "NJS Enabled Node Received Message: " << msg->getFullName() << endl;
+    EV_INFO << "SNR Enabled Node Received Message: " << msg->getFullName() << endl;
 
     if (msg == stateCheckTimer)
     {
@@ -80,19 +84,27 @@ void NJSPingApp::handleMessageWhenUp(cMessage *msg)
     }
 }
 
-void NJSPingApp::logState()
+void SNRPingApp::logState()
 {
-    bubble("Logging State!");
-    EV << "------------------LOGGING STATE (" << logsMade << ")------------------" << endl;
+    int transmissionState = getCurrentTransmissionState();
 
+    double distanceToRSU = calculateDistanceTo("RSU");
+    double distanceToJammer = calculateDistanceTo("jammer");
+
+    double rsuTransmissionStrength = 1 == 1 ? getTransmissionStrength(rsuRadioTransmissionPower, distanceToRSU, 2400000000, 0.0, 2.0, 299792458) : 1; // 2.4GHz
+    double jammerTransmissionStrength = 1 == 1 ? getTransmissionStrength(jammerRadioTransmissionPower, distanceToJammer, 2400000000, 0.0, 2.0, 299792458) : 1; // 2.4GHz
+
+    EV_INFO << "RTS: " << rsuTransmissionStrength << ", JTS: " << jammerTransmissionStrength << endl;
+
+    // I need some way to simulate background transmissions/background energy (probably with some kind of normal map)
+
+    long double snr = rsuTransmissionStrength / (jammerTransmissionStrength + 0.00001);
     Coord position = getCurrentPosition();
-    int njsState = getCurrentNJSState();
-
     const char* myName = getParentModule()->getFullName();
-    NJSReportElement currentLog(position, njsState, simTime(), myName);
-    reportElements.push_back(currentLog);
 
-    EV_INFO << currentLog.toString() << endl;
+    SNRReportElement reportElement = SNRReportElement(position, rsuTransmissionStrength, jammerTransmissionStrength, snr, simTime(), myName);
+
+    reportElements.push_back(reportElement);
 
     logsMade++;
 
@@ -102,26 +114,28 @@ void NJSPingApp::logState()
     }
 }
 
-Coord NJSPingApp::getCurrentPosition()
+// This is an "instant transmission" method as I really don't want to handle sending a non-fixed length vector in a packet
+void SNRPingApp::sendToRSU(std::vector<SNRReportElement> report, const char* rsuName)
 {
-    if (mobility != nullptr)
-    {
-        return mobility->getCurrentPosition();
-    }
-    return Coord::ZERO;
+    // locate the SNRLoggingApp on the object with name rsuName
+    cModule* rsuModule = getSimulation()->getModuleByPath(rsuName);
+    SNRLoggingApp* loggingApp = check_and_cast<SNRLoggingApp*>(rsuModule->getSubmodule("app", 3));
+
+    // push the contents of the report onto the back of the SNRLoggingApp's unprocessed reports
+    loggingApp->addReport(report);
 }
 
-int NJSPingApp::getCurrentNJSState()
+double SNRPingApp::getTransmissionStrength(double initialTransmissionPower, double distance, double frequency, double systemLoss = 1.0, double alpha = 2.0, double propagationSpeed = 299792458)
+{
+    double waveLength = propagationSpeed / frequency;
+    double pathLossFactor = distance == 0.0 ? 1.0 : (waveLength * waveLength) / (16 * M_PI * M_PI * pow(distance, alpha)); // From FreeSpacePathLoss
+    return initialTransmissionPower * pathLossFactor;
+}
+
+int SNRPingApp::getCurrentTransmissionState()
 {
     if (radio != nullptr)
     {
-        // are we jammed
-        if (isJammedBy("jammer") == 1)
-        {
-            radio->setRadioMode(physicallayer::IRadio::RADIO_MODE_SLEEP); // If jammed disable radio
-            return 3;
-        }
-
         if (radio->getRadioMode() == physicallayer::IRadio::RADIO_MODE_SLEEP)
         {
             radio->setRadioMode(physicallayer::IRadio::RADIO_MODE_RECEIVER);
@@ -154,21 +168,16 @@ int NJSPingApp::getCurrentNJSState()
     }
 }
 
-// This is an "instant transmission" method as I really don't want to handle sending a non-fixed length vector in a packet
-void NJSPingApp::sendToRSU(std::vector<NJSReportElement> report, const char* rsuName)
+Coord SNRPingApp::getCurrentPosition()
 {
-    // locate the NJSLoggingApp on the object with name rsuName
-    cModule* rsuModule = getSimulation()->getModuleByPath(rsuName);
-    NJSLoggingApp* loggingApp = check_and_cast<NJSLoggingApp*>(rsuModule->getSubmodule("app", 1));
-    NJSLegacyLoggingApp* legacyLoggingApp = check_and_cast<NJSLegacyLoggingApp*>(rsuModule->getSubmodule("app", 2));
-
-    // push the contents of the report onto the back of the NJSReportingApp's unprocessed reports
-    loggingApp->addReport(report);
-    legacyLoggingApp->addReport(report);
+    if (mobility != nullptr)
+    {
+        return mobility->getCurrentPosition();
+    }
+    return Coord::ZERO;
 }
 
-
-void NJSPingApp::listSubmodules(cModule *module)
+void SNRPingApp::listSubmodules(cModule *module)
 {
     EV << "Listing Submodules of: ";
     if(!module)
@@ -188,7 +197,7 @@ void NJSPingApp::listSubmodules(cModule *module)
     }
 }
 
-double NJSPingApp::calculateDistanceTo(const char* nodeName)
+double SNRPingApp::calculateDistanceTo(const char* nodeName)
 {
     // Get the position of the current host
     Coord myPosition = mobility->getCurrentPosition();
@@ -209,35 +218,3 @@ double NJSPingApp::calculateDistanceTo(const char* nodeName)
 
     return distance;
 }
-
-int NJSPingApp::isJammedBy(const char* jammerName)
-{
-    EV_INFO << "Testing to see if jammed" << endl;
-    cModule* otherHost = getSimulation()->getModuleByPath(jammerName);
-    EV_INFO << "otherHost may exist" << endl;
-    if (!otherHost)
-    {
-        EV_ERROR << "Host " << jammerName << " not found!" << endl;
-        return -1;  // Return a negative value to indicate an error
-    }
-
-    double distance = calculateDistanceTo(jammerName);
-    if (distance == -1)
-    {
-        EV_ERROR << "Host " << jammerName << " has no valid distance to me!" << endl;
-        return -1;  // Return a negative value to indicate an error
-    }
-
-    NJSJammerApp* jammerApp = check_and_cast<NJSJammerApp*>(otherHost->getSubmodule("app", 0));
-
-    // Check if we are in range of the jammer
-    if (distance > jammerApp->jammingRadius) return 0;
-    EV_INFO << "Host in Range of Jammer (" << distance << " <= " << jammerApp->jammingRadius << ")" << endl;
-
-    // Check if the jammer is currently broadcasting a jamming signal
-    if (!jammerApp->transmittingJammingSignal) return 0;
-    EV_INFO << "Jammer in range is transmitting! We are jammed!" << endl;
-
-    return 1;
-}
-

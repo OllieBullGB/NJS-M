@@ -16,7 +16,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 
-package inetwirelesstutorial.simulations.NJS_ap;
+package inetwirelesstutorial.simulations.NJS_RSU_only;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
@@ -24,7 +24,7 @@ import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.contract.IIntegratedVisualizer;
 
-network NJSAp
+network NJS_RSU_only
 {
     parameters:
         int numHosts;
@@ -45,15 +45,7 @@ network NJSAp
                 @display("p=100,200;is=s");
         }
         RSU: AdhocHost {
-            @display("i=device/antennatower;p=242,200");
-            wlan[0].mac.typename = "Ieee80211Mac";
-        }
-        host[numHosts]: AdhocHost {
-            @display("i=misc/car2");
-            wlan[0].mac.typename = "Ieee80211Mac";
-        }
-        jammer: AdhocHost {
-            @display("i=misc/sensor2;p=465.15625,343.5");
+            @display("i=device/antennatower;p=270,171");
             wlan[0].mac.typename = "Ieee80211Mac";
         }
 }

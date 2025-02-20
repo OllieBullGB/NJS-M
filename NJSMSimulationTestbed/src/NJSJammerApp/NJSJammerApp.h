@@ -18,8 +18,10 @@
 
 #include <omnetpp.h>
 #include "inet/applications/pingapp/PingApp.h"
+#include "inet/applications/base/ApplicationBase.h"
 #include "inet/transportlayer/contract/udp/UdpSocket.h"
 #include "inet/networklayer/common/L3AddressResolver.h"
+#include "inet/linklayer/ieee80211/mac/Ieee80211Mac.h"
 
 using namespace inet;
 
@@ -29,16 +31,25 @@ class NJSJammerApp : public PingApp
         UdpSocket socket;
         cMessage *jammingSignalTimer = nullptr;
         simtime_t jammingInterval = 0.005;
+        simtime_t delay;
+        bool isProactive = true;
+
+        cOvalFigure* jammingRadiusFigure = nullptr;
+
+        physicallayer::IRadio *radio = nullptr;
+        cMessage *checkRadioState = nullptr;
 
         virtual void initialize(int stage) override;
         virtual void handleMessageWhenUp(cMessage* msg) override;
         virtual void finish() override;
 
-        void sendJammingSignal();
+        virtual void updateJammingRadiusFigure();
 
     public:
         NJSJammerApp();
         virtual ~NJSJammerApp();
+        double jammingRadius;
+        bool transmittingJammingSignal = false;
 };
 
 #endif /* NJSJAMMERAPP_NJSJAMMERAPP_H_ */

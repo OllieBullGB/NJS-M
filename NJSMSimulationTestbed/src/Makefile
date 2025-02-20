@@ -34,7 +34,20 @@ PROJECTRELATIVE_PATH = src
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/NJSJammerApp/NJSJammerApp.o $O/NJSPingApp/NJSPingApp.o $O/NJSWirelessHost/NJSWirelessHost.o $O/NJSWirelessHost/NJSReport_m.o
+OBJS = \
+    $O/NJSJammerApp/NJSJammerApp.o \
+    $O/NJSLegacyLoggingApp/NJSLegacyLoggingApp.o \
+    $O/NJSLegacyLoggingApp/NJSLegacyNode.o \
+    $O/NJSLoggingApp/NJSDetectionZone.o \
+    $O/NJSLoggingApp/NJSLoggingApp.o \
+    $O/NJSPingApp/NJSPingApp.o \
+    $O/NJSReport/NJSReportElement.o \
+    $O/NJSWirelessHost/NJSWirelessHost.o \
+    $O/SNRLoggingApp/SNRLoggingApp.o \
+    $O/SNRLoggingApp/SNRNode.o \
+    $O/SNRPingApp/SNRPingApp.o \
+    $O/SNRPingApp/SNRReportElement.o \
+    $O/NJSWirelessHost/NJSReport_m.o
 
 # Message files
 MSGFILES = \
