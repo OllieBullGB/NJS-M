@@ -2,6 +2,7 @@
 #define SNRPINGAPP_SNRReportElement_H_
 
 #include <omnetpp.h>
+#include <cmath>
 #include "inet/common/INETDefs.h"
 #include "inet/common/INETUtils.h"
 #include "inet/mobility/contract/IMobility.h"
@@ -31,6 +32,8 @@ class SNRReportElement
                << ", Timestamp: " << timestamp;
             return ss.str();
         }
+
+        bool isValid() const;
 
     protected:
         Coord position;

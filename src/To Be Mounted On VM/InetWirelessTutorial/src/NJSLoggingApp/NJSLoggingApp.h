@@ -2,6 +2,7 @@
 #define NJSLOGGINGAPP_NJSLOGGINGAPP_H_
 
 #include <omnetpp.h>
+#include <cmath>
 #include <math.h>
 #include <stack>
 #include <fstream>
@@ -51,7 +52,7 @@ class NJSLoggingApp : public PingApp
         Coord centerPoint;
         double coverageRadius;
         double d = 50;
-        double dSqrt2 = 35.355339;
+        double dSqrt2 = 35.356;
 
         double validReportsProcessed = 0;
 

@@ -35,6 +35,9 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
 OBJS = \
+    $O/MLLoggingApp/MLLoggingApp.o \
+    $O/MLLoggingApp/MLNode.o \
+    $O/MLLoggingApp/SNRMLModel.o \
     $O/NJSJammerApp/NJSJammerApp.o \
     $O/NJSLegacyLoggingApp/NJSLegacyLoggingApp.o \
     $O/NJSLegacyLoggingApp/NJSLegacyNode.o \

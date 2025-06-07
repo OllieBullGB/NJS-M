@@ -24,3 +24,24 @@ SNRReportElement::~SNRReportElement() {
     // TODO Auto-generated destructor stub
 }
 
+bool SNRReportElement::isValid() const
+{
+    // Check if node pointer is not null
+    if (node == nullptr)
+        return false;
+
+    // Check that all relevant doubles are finite and not NaN
+    if (!std::isfinite(snr) || !std::isfinite(rsuTransmissionStrength) || !std::isfinite(jammerTransmissionStrength))
+        return false;
+
+    // Check coordinates
+    if (!std::isfinite(position.x) || !std::isfinite(position.y) || !std::isfinite(position.z))
+        return false;
+
+    if (getRsuTransmissionStrength() <= 0 || !std::isfinite(getRsuTransmissionStrength())) {
+        return false;
+    }
+
+    return true;
+}
+

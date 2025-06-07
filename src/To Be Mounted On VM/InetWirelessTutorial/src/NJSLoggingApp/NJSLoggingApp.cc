@@ -301,8 +301,6 @@ Coord NJSLoggingApp::localiseJammer()
     std::vector<Coord> uniqueCoords;
 
     // 1. Get all DZ with NJS > 0
-
-
     for (const auto& dz : detectionZones)
     {
         if (dz.njsExp + dz.njsImp > 0)
@@ -375,7 +373,13 @@ double NJSLoggingApp::calculateJammerLocalisationError(Coord& predictedPosition,
     IMobility* otherMobility = check_and_cast<IMobility*>(otherHost->getSubmodule("mobility"));
     Coord otherPosition = otherMobility->getCurrentPosition();
 
-    return sqrt(predictedPosition.sqrdist(otherPosition));
+    double error = sqrt(predictedPosition.sqrdist(otherPosition));
+
+    if (std::isnan(error)) {
+        return -1;
+    }
+
+    return error;
 }
 
 std::array<int, 4> NJSLoggingApp::calculateJammingAccuracy(const char* jammerName)
@@ -492,14 +496,14 @@ void NJSLoggingApp::saveResultsToFile(double jle, std::array<int, 4> accuracy, d
     if (file.is_open()) {
         // Add the header if needed
         if (addHeader) {
-            file << "runName,time,JLE,tp,fp,tn,fn,accuracy,ttfd,vSpeed\n";
+            file << "runName,time,JLE,tp,fp,tn,fn,accuracy,ttfd,vSpeed,validReportsProcessed\n";
         }
 
         // Write values to file
         file << std::fixed << std::setprecision(5);
         file << runName << "," << simTime().dbl() << "," << jle << ","
              << accuracy[0] << "," << accuracy[1] << "," << accuracy[2] << ","
-             << accuracy[3] << "," << accuracyMetric << "," << ttfd << "," << speed << std::endl;
+             << accuracy[3] << "," << accuracyMetric << "," << ttfd << "," << speed << ',' << validReportsProcessed << std::endl;
         file.close();
     } else {
         std::cerr << "Unable to open file: " << filename << std::endl;

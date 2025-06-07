@@ -2,6 +2,7 @@
 #define SNRPINGAPP_SNRPINGAPP_H_
 
 #include <omnetpp.h>
+#include <random>  // At the top of your file
 #include "inet/common/INETDefs.h"
 #include "inet/common/INETUtils.h"
 #include "inet/mobility/contract/IMobility.h"
@@ -14,6 +15,7 @@
 
 #include "./SNRReportElement.h"
 #include "../SNRLoggingApp/SNRLoggingApp.h"
+#include "../MLLoggingApp/MLLoggingApp.h"
 
 using namespace inet;
 

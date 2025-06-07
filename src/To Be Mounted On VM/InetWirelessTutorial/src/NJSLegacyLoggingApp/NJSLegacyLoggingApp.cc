@@ -223,7 +223,13 @@ double NJSLegacyLoggingApp::calculateJammerLocalisationError(Coord& predictedPos
     IMobility* otherMobility = check_and_cast<IMobility*>(otherHost->getSubmodule("mobility"));
     Coord otherPosition = otherMobility->getCurrentPosition();
 
-    return sqrt(predictedPosition.sqrdist(otherPosition));
+    double error = sqrt(predictedPosition.sqrdist(otherPosition));
+
+    if (std::isnan(error)) {
+        return -1;
+    }
+
+    return error;
 }
 
 std::array<int, 4> NJSLegacyLoggingApp::calculateJammingAccuracy(const char* jammerName)

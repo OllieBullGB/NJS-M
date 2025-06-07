@@ -46,7 +46,7 @@ network Scenario
 {
     parameters:
         bool useOsg = default(false);
-        @display("bgb=319,384");
+        @display("bgb=200,200");
     submodules:
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=64,224");

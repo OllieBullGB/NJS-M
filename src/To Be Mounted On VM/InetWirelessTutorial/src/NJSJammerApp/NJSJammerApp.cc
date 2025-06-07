@@ -23,7 +23,6 @@ void NJSJammerApp::initialize(int stage)
         transmittingJammingSignal = true;
         jammingInterval = par("jammingInterval");
         delay = par("startingDelay");
-        jammingRadius = par("jammingRadius");
 
         isProactive = par("isProactive");
         useProximity = par("useProximity");
@@ -53,6 +52,8 @@ void NJSJammerApp::initialize(int stage)
         {
             EV_INFO << "Radio Module Found on Parent!" << endl;
         }
+
+        jammingRadius = check_and_cast<const physicallayer::IRadioMedium *>(radio->getMedium())->getMediumLimitCache()->getMaxCommunicationRange(radio).get();
 
     }
 }

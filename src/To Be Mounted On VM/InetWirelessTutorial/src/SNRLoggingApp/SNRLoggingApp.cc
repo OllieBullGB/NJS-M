@@ -282,6 +282,7 @@ void SNRLoggingApp::recordAndSaveMetricsAtTimestep()
     saveResultsToFile(jle, accuracy, ttfd, speed, "/home/veins/workspace.omnetpp/InetWirelessTutorial/simulations/NJS_ap/results/snrResults.txt");
 }
 
+
 void SNRLoggingApp::saveResultsToFile(double jle, std::array<int, 4> accuracy, double ttfd, double speed, const std::string& filename)
 {
     // Open file in append mode
@@ -303,7 +304,11 @@ void SNRLoggingApp::saveResultsToFile(double jle, std::array<int, 4> accuracy, d
 
     file.open(filename, std::ios::app);
 
-    double accuracyMetric = (accuracy[0] + accuracy[1]) / (accuracy[0] + accuracy[1] + accuracy[2] + accuracy[3]);
+    double accuracyMetric = -1.0;
+    int total = accuracy[0] + accuracy[1] + accuracy[2] + accuracy[3];
+    if (total != 0) {
+        accuracyMetric = static_cast<double>(accuracy[0] + accuracy[1]) / total;
+    }
 
     if (file.is_open()) {
         // Add the header if needed

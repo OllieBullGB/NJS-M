@@ -1,0 +1,2796 @@
+file 26746721 1749132692                                        
+version 2
+run General-0-20250605-14:10:18-47404
+attr configname General
+attr datetime 20250605-14:10:18
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Scenario
+attr processid 47404
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.RSU.numApps 5
+param *.RSU.app[0].typename "\"NJSPingApp\""
+param *.RSU.app[0].destAddr "\"*\""
+param *.RSU.app[0].sendInterval 20ms
+param *.RSU.app[1].typename "\"NJSLoggingApp\""
+param *.RSU.app[1].cleanAfterEachCalculation false
+param *.RSU.app[2].typename "\"NJSLegacyLoggingApp\""
+param *.RSU.app[2].cleanAfterEachCalculation false
+param *.RSU.app[3].typename "\"SNRLoggingApp\""
+param *.RSU.app[3].cleanAfterEachCalculation false
+param *.RSU.app[4].typename "\"MLLoggingApp\""
+param *.RSU.app[4].cleanAfterEachCalculation false
+param *.jammer.mobility.typename "\"StationaryMobility\""
+param *.jammer.numApps 1
+param *.jammer.app[0].typename "\"NJSJammerApp\""
+param *.jammer.app[0].destAddr "\"\""
+param *.jammer.app[0].sendInterval 5ms
+param *.jammer.app[0].packetSize 8B
+param *.jammer.app[0].jammingSourceAddress "\"jammer\""
+param *.jammer.app[0].isProactive true
+param *.jammer.app[0].jammingRadius 215m
+param *.jammer.wlan[*].radio.displayCommunicationRange true
+param *.jammer.wlan[*].radio.transmitter.power 1.6mW
+param *.node[*].numApps 2
+param *.node[*].app[0].typename "\"NJSPingApp\""
+param *.node[*].app[0].destAddr "\"RSU\""
+param *.node[*].app[0].sendInterval 80ms
+param *.node[*].app[0].packetSize 1518B
+param *.node[*].app[1].typename "\"SNRPingApp\""
+param *.node[*].app[1].destAddr "\"RSU\""
+param *.node[*].app[1].sendInterval 80ms
+param *.node[*].app[1].packetSize 1518B
+param *.RSU.wlan[*].radio.transmitter.power 15mW
+param *.node[*].wlan[*].radio.transmitter.power 15mW
+param **.wlan[*].radio.transmitter.bitrate 2Mbps
+param **.wlan[*].radio.transmitter.headerLength 272B
+param **.wlan[*].radio.transmitter.centerFrequency 2.4GHz
+param **.wlan[*].radio.receiver.sensitivity -85dBm
+param **.wlan[*].radio.receiver.snirThreshold 4dB
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.constraintAreaMaxX 5500m
+param **.constraintAreaMaxY 5500m
+param **.constraintAreaMaxZ 50m
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.numVehicles 1
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"durham.launchd.xml\")"
+param *.obstacles.obstacles "xmldoc(\"config.xml\", \"//AnalogueModel[@type='SimpleObstacleShadowing']/obstacles\")"
+param *.manager.moduleType "\"inetwirelesstutorial.veins_inet.VeinsInetCar\""
+
+vector 0 Scenario.RSU.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 1 Scenario.RSU.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 2 Scenario.jammer.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 Scenario.jammer.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 4 Scenario.RSU.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 5 Scenario.jammer.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 6 Scenario.RSU.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 7 Scenario.jammer.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 8 Scenario.RSU.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 9 Scenario.RSU.lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 10 Scenario.RSU.lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 11 Scenario.RSU.app[0] pingRxSeq:vector ETV
+attr interpolationmode none
+attr title "ping rx seq, vector"
+vector 12 Scenario.node[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 13 Scenario.node[0].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 14 Scenario.node[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 Scenario.node[0].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 16 Scenario.node[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 17 Scenario.node[1].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 18 Scenario.node[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 19 Scenario.node[1].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 20 Scenario.node[2].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 21 Scenario.node[2].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 22 Scenario.node[2].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 Scenario.node[2].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 24 Scenario.node[3].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 25 Scenario.node[3].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 26 Scenario.node[3].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 27 Scenario.node[3].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 28 Scenario.node[4].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 29 Scenario.node[4].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 30 Scenario.node[4].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 31 Scenario.node[4].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 32 Scenario.node[5].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 33 Scenario.node[5].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 34 Scenario.node[5].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 35 Scenario.node[5].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 36 Scenario.node[6].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 37 Scenario.node[6].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 38 Scenario.node[6].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 39 Scenario.node[6].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 40 Scenario.node[0].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 41 Scenario.node[0].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 42 Scenario.node[1].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 43 Scenario.node[1].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 44 Scenario.node[2].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 45 Scenario.node[2].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 46 Scenario.node[3].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 47 Scenario.node[3].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 48 Scenario.node[4].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 49 Scenario.node[4].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 50 Scenario.node[5].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 51 Scenario.node[5].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 52 Scenario.node[6].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 53 Scenario.node[6].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 54 Scenario.node[0].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 55 Scenario.node[1].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 56 Scenario.node[2].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 57 Scenario.node[3].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 58 Scenario.node[4].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 59 Scenario.node[5].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 60 Scenario.node[6].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 61 Scenario.node[7].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 62 Scenario.node[7].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 63 Scenario.node[7].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 64 Scenario.node[7].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 65 Scenario.node[8].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 66 Scenario.node[8].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 67 Scenario.node[8].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 68 Scenario.node[8].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 69 Scenario.node[9].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 70 Scenario.node[9].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 71 Scenario.node[9].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 72 Scenario.node[9].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 73 Scenario.node[10].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 74 Scenario.node[10].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 75 Scenario.node[10].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 76 Scenario.node[10].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 77 Scenario.node[11].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 78 Scenario.node[11].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 79 Scenario.node[11].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 80 Scenario.node[11].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 81 Scenario.node[12].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 82 Scenario.node[12].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 83 Scenario.node[12].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 84 Scenario.node[12].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 85 Scenario.node[13].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 86 Scenario.node[13].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 87 Scenario.node[13].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 88 Scenario.node[13].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 89 Scenario.node[14].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 90 Scenario.node[14].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 91 Scenario.node[14].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 92 Scenario.node[14].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 93 Scenario.node[7].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 94 Scenario.node[7].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 95 Scenario.node[8].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 96 Scenario.node[8].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 97 Scenario.node[9].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 98 Scenario.node[9].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 99 Scenario.node[10].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 100 Scenario.node[10].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 101 Scenario.node[11].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 102 Scenario.node[11].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 103 Scenario.node[12].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 104 Scenario.node[12].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 105 Scenario.node[13].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 106 Scenario.node[13].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 107 Scenario.node[14].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 108 Scenario.node[14].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 109 Scenario.node[7].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 110 Scenario.node[8].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 111 Scenario.node[9].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 112 Scenario.node[10].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 113 Scenario.node[11].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 114 Scenario.node[12].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 115 Scenario.node[13].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 116 Scenario.node[14].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 117 Scenario.node[15].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 118 Scenario.node[15].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 119 Scenario.node[15].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 120 Scenario.node[15].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 121 Scenario.node[16].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 122 Scenario.node[16].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 123 Scenario.node[16].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 124 Scenario.node[16].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 125 Scenario.node[17].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 126 Scenario.node[17].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 127 Scenario.node[17].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 128 Scenario.node[17].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 129 Scenario.node[18].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 130 Scenario.node[18].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 131 Scenario.node[18].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 132 Scenario.node[18].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 133 Scenario.node[19].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 134 Scenario.node[19].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 135 Scenario.node[19].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 136 Scenario.node[19].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 137 Scenario.node[20].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 138 Scenario.node[20].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 139 Scenario.node[20].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 140 Scenario.node[20].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 141 Scenario.node[21].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 142 Scenario.node[21].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 143 Scenario.node[21].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 144 Scenario.node[21].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 145 Scenario.node[15].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 146 Scenario.node[15].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 147 Scenario.node[16].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 148 Scenario.node[16].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 149 Scenario.node[17].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 150 Scenario.node[17].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 151 Scenario.node[18].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 152 Scenario.node[18].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 153 Scenario.node[19].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 154 Scenario.node[19].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 155 Scenario.node[20].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 156 Scenario.node[20].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 157 Scenario.node[21].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 158 Scenario.node[21].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 159 Scenario.node[15].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 160 Scenario.node[16].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 161 Scenario.node[17].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 162 Scenario.node[18].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 163 Scenario.node[19].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 164 Scenario.node[20].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 165 Scenario.node[21].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 166 Scenario.node[22].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 167 Scenario.node[22].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 168 Scenario.node[22].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 169 Scenario.node[22].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 170 Scenario.node[23].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 171 Scenario.node[23].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 172 Scenario.node[23].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 173 Scenario.node[23].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 174 Scenario.node[24].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 175 Scenario.node[24].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 176 Scenario.node[24].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 177 Scenario.node[24].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 178 Scenario.node[25].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 179 Scenario.node[25].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 180 Scenario.node[25].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 181 Scenario.node[25].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 182 Scenario.node[26].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 183 Scenario.node[26].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 184 Scenario.node[26].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 185 Scenario.node[26].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 186 Scenario.node[27].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 187 Scenario.node[27].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 188 Scenario.node[27].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 189 Scenario.node[27].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 190 Scenario.node[28].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 191 Scenario.node[28].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 192 Scenario.node[28].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 193 Scenario.node[28].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 194 Scenario.node[29].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 195 Scenario.node[29].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 196 Scenario.node[29].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 197 Scenario.node[29].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 198 Scenario.node[22].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 199 Scenario.node[22].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 200 Scenario.node[23].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 201 Scenario.node[23].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 202 Scenario.node[24].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 203 Scenario.node[24].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 204 Scenario.node[25].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 205 Scenario.node[25].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 206 Scenario.node[26].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 207 Scenario.node[26].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 208 Scenario.node[27].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 209 Scenario.node[27].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 210 Scenario.node[28].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 211 Scenario.node[28].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 212 Scenario.node[29].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 213 Scenario.node[29].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 214 Scenario.node[22].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 215 Scenario.node[23].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 216 Scenario.node[24].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 217 Scenario.node[25].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 218 Scenario.node[26].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 219 Scenario.node[27].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 220 Scenario.node[28].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 221 Scenario.node[29].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 222 Scenario.node[30].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 223 Scenario.node[30].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 224 Scenario.node[30].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 225 Scenario.node[30].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 226 Scenario.node[31].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 227 Scenario.node[31].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 228 Scenario.node[31].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 229 Scenario.node[31].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 230 Scenario.node[32].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 231 Scenario.node[32].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 232 Scenario.node[32].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 233 Scenario.node[32].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 234 Scenario.node[33].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 235 Scenario.node[33].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 236 Scenario.node[33].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 237 Scenario.node[33].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 238 Scenario.node[34].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 239 Scenario.node[34].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 240 Scenario.node[34].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 241 Scenario.node[34].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 242 Scenario.node[35].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 243 Scenario.node[35].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 244 Scenario.node[35].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 245 Scenario.node[35].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 246 Scenario.node[30].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 247 Scenario.node[30].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 248 Scenario.node[31].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 249 Scenario.node[31].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 250 Scenario.node[32].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 251 Scenario.node[32].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 252 Scenario.node[33].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 253 Scenario.node[33].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 254 Scenario.node[34].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 255 Scenario.node[34].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 256 Scenario.node[35].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 257 Scenario.node[35].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 258 Scenario.node[30].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 259 Scenario.node[31].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 260 Scenario.node[32].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 261 Scenario.node[33].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 262 Scenario.node[34].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 263 Scenario.node[35].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 264 Scenario.node[36].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 265 Scenario.node[36].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 266 Scenario.node[36].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 267 Scenario.node[36].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 268 Scenario.node[37].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 269 Scenario.node[37].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 270 Scenario.node[37].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 271 Scenario.node[37].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 272 Scenario.node[38].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 273 Scenario.node[38].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 274 Scenario.node[38].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 275 Scenario.node[38].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 276 Scenario.node[39].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 277 Scenario.node[39].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 278 Scenario.node[39].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 279 Scenario.node[39].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 280 Scenario.node[40].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 281 Scenario.node[40].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 282 Scenario.node[40].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 283 Scenario.node[40].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 284 Scenario.node[41].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 285 Scenario.node[41].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 286 Scenario.node[41].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 287 Scenario.node[41].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 288 Scenario.node[36].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 289 Scenario.node[36].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 290 Scenario.node[37].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 291 Scenario.node[37].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 292 Scenario.node[38].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 293 Scenario.node[38].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 294 Scenario.node[39].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 295 Scenario.node[39].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 296 Scenario.node[40].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 297 Scenario.node[40].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 298 Scenario.node[41].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 299 Scenario.node[41].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 300 Scenario.node[36].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 301 Scenario.node[37].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 302 Scenario.node[38].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 303 Scenario.node[39].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 304 Scenario.node[40].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 305 Scenario.node[41].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 306 Scenario.node[42].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 307 Scenario.node[42].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 308 Scenario.node[42].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 309 Scenario.node[42].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 310 Scenario.node[43].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 311 Scenario.node[43].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 312 Scenario.node[43].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 313 Scenario.node[43].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 314 Scenario.node[44].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 315 Scenario.node[44].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 316 Scenario.node[44].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 317 Scenario.node[44].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 318 Scenario.node[45].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 319 Scenario.node[45].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 320 Scenario.node[45].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 321 Scenario.node[45].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 322 Scenario.node[46].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 323 Scenario.node[46].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 324 Scenario.node[46].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 325 Scenario.node[46].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 326 Scenario.node[47].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 327 Scenario.node[47].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 328 Scenario.node[47].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 329 Scenario.node[47].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 330 Scenario.node[48].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 331 Scenario.node[48].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 332 Scenario.node[48].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 333 Scenario.node[48].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 334 Scenario.node[42].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 335 Scenario.node[42].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 336 Scenario.node[43].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 337 Scenario.node[43].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 338 Scenario.node[44].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 339 Scenario.node[44].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 340 Scenario.node[45].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 341 Scenario.node[45].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 342 Scenario.node[46].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 343 Scenario.node[46].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 344 Scenario.node[47].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 345 Scenario.node[47].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 346 Scenario.node[48].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 347 Scenario.node[48].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 348 Scenario.node[42].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 349 Scenario.node[43].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 350 Scenario.node[44].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 351 Scenario.node[45].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 352 Scenario.node[46].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 353 Scenario.node[47].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 354 Scenario.node[48].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 355 Scenario.node[49].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 356 Scenario.node[49].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 357 Scenario.node[49].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 358 Scenario.node[49].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 359 Scenario.node[50].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 360 Scenario.node[50].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 361 Scenario.node[50].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 362 Scenario.node[50].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 363 Scenario.node[51].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 364 Scenario.node[51].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 365 Scenario.node[51].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 366 Scenario.node[51].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 367 Scenario.node[52].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 368 Scenario.node[52].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 369 Scenario.node[52].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 370 Scenario.node[52].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 371 Scenario.node[53].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 372 Scenario.node[53].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 373 Scenario.node[53].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 374 Scenario.node[53].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 375 Scenario.node[49].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 376 Scenario.node[49].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 377 Scenario.node[50].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 378 Scenario.node[50].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 379 Scenario.node[51].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 380 Scenario.node[51].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 381 Scenario.node[52].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 382 Scenario.node[52].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 383 Scenario.node[53].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 384 Scenario.node[53].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 385 Scenario.node[49].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 386 Scenario.node[50].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 387 Scenario.node[51].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 388 Scenario.node[52].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 389 Scenario.node[53].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 390 Scenario.node[54].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 391 Scenario.node[54].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 392 Scenario.node[54].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 393 Scenario.node[54].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 394 Scenario.node[55].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 395 Scenario.node[55].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 396 Scenario.node[55].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 397 Scenario.node[55].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 398 Scenario.node[56].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 399 Scenario.node[56].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 400 Scenario.node[56].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 401 Scenario.node[56].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 402 Scenario.node[57].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 403 Scenario.node[57].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 404 Scenario.node[57].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 405 Scenario.node[57].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 406 Scenario.node[58].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 407 Scenario.node[58].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 408 Scenario.node[58].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 409 Scenario.node[58].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 410 Scenario.node[59].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 411 Scenario.node[59].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 412 Scenario.node[59].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 413 Scenario.node[59].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 414 Scenario.node[54].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 415 Scenario.node[54].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 416 Scenario.node[55].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 417 Scenario.node[55].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 418 Scenario.node[56].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 419 Scenario.node[56].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 420 Scenario.node[57].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 421 Scenario.node[57].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 422 Scenario.node[58].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 423 Scenario.node[58].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 424 Scenario.node[59].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 425 Scenario.node[59].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 426 Scenario.node[54].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 427 Scenario.node[55].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 428 Scenario.node[56].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 429 Scenario.node[57].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 430 Scenario.node[58].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 431 Scenario.node[59].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 432 Scenario.node[60].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 433 Scenario.node[60].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 434 Scenario.node[60].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 435 Scenario.node[60].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 436 Scenario.node[61].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 437 Scenario.node[61].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 438 Scenario.node[61].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 439 Scenario.node[61].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 440 Scenario.node[62].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 441 Scenario.node[62].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 442 Scenario.node[62].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 443 Scenario.node[62].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 444 Scenario.node[63].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 445 Scenario.node[63].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 446 Scenario.node[63].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 447 Scenario.node[63].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 448 Scenario.node[64].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 449 Scenario.node[64].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 450 Scenario.node[64].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 451 Scenario.node[64].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 452 Scenario.node[65].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 453 Scenario.node[65].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 454 Scenario.node[65].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 455 Scenario.node[65].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 456 Scenario.node[66].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 457 Scenario.node[66].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 458 Scenario.node[66].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 459 Scenario.node[66].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 460 Scenario.node[67].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 461 Scenario.node[67].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 462 Scenario.node[67].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 463 Scenario.node[67].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 464 Scenario.node[68].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 465 Scenario.node[68].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 466 Scenario.node[68].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 467 Scenario.node[68].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 468 Scenario.node[60].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 469 Scenario.node[60].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 470 Scenario.node[61].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 471 Scenario.node[61].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 472 Scenario.node[62].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 473 Scenario.node[62].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 474 Scenario.node[63].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 475 Scenario.node[63].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 476 Scenario.node[64].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 477 Scenario.node[64].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 478 Scenario.node[65].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 479 Scenario.node[65].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 480 Scenario.node[66].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 481 Scenario.node[66].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 482 Scenario.node[67].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 483 Scenario.node[67].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 484 Scenario.node[68].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 485 Scenario.node[68].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 486 Scenario.node[60].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 487 Scenario.node[61].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 488 Scenario.node[62].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 489 Scenario.node[63].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 490 Scenario.node[64].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 491 Scenario.node[65].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 492 Scenario.node[66].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 493 Scenario.node[67].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 494 Scenario.node[68].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 495 Scenario.node[69].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 496 Scenario.node[69].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 497 Scenario.node[69].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 498 Scenario.node[69].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 499 Scenario.node[69].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 500 Scenario.node[69].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 501 Scenario.node[69].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+233	85069 15 28372 28372 5 5 1 31 31 31 961
+231	85084 14 28372 28372 5 5 1 0 0 0 0
+230	85098 62528 28372 402757 5 21.996 3145 0 2 4715 7859
+232	147626 62500 28372 402757 5 21.996 3143 0 1 1572 1572
+260	210126 9014 28450 402001 5 21.96 426 1546 1546 658596 1018189416
+250	219140 4184 28405 401920 5 21.96 213 0 212 22578 3198550
+251	223324 4184 28406 401921 5 21.96 213 0 212 22578 3198550
+193	227508 15 17594 17594 4 4 1 31 31 31 961
+191	227523 14 17594 17594 4 4 1 0 0 0 0
+190	227537 42 17594 17594 4 4 3 0 2 2 4
+192	227579 14 17594 17594 4 4 1 1 1 1 1
+220	227593 10574 17668 448777 4 23.92 500 1546 1546 773000 1195058000
+210	238167 4927 17623 448692 4 23.92 250 0 249 31125 5177125
+211	243094 4927 17624 448693 4 23.92 250 0 249 31125 5177125
+197	248021 15 17594 17594 4 4 1 31 31 31 961
+195	248036 14 17594 17594 4 4 1 0 0 0 0
+194	248050 42 17594 17594 4 4 3 0 2 2 4
+196	248092 14 17594 17594 4 4 1 1 1 1 1
+221	248106 12222 17672 520306 4 26.96 576 1546 1546 890496 1376706816
+212	260328 5713 17625 520219 4 26.96 288 0 287 41328 7921200
+213	266041 5713 17626 520220 4 26.96 288 0 287 41328 7921200
+23	271754 12 696 696 1 1 1 31 31 31 961
+21	271766 11 696 696 1 1 1 0 0 0 0
+20	271777 33 696 696 1 1 3 0 2 2 4
+22	271810 11 696 696 1 1 1 1 1 1 1
+56	271821 12976 720 519362 1 26.92 650 1546 1546 1004900 1553575400
+44	284797 6053 701 519267 1 26.92 325 0 324 52650 11389950
+45	290850 6053 702 519268 1 26.92 325 0 324 52650 11389950
+136	296903 14 9492 9492 3 3 1 31 31 31 961
+134	296917 13 9492 9492 3 3 1 0 0 0 0
+133	296930 39 9492 9492 3 3 3 0 2 2 4
+135	296969 13 9492 9492 3 3 1 1 1 1 1
+163	296982 14342 9552 588900 3 29.96 676 1546 1546 1045096 1615718416
+153	311324 6723 9515 588820 3 29.96 338 0 337 56953 12814425
+154	318047 6723 9516 588821 3 29.96 338 0 337 56953 12814425
+317	324770 15 55983 55983 7 7 1 31 31 31 961
+315	324785 14 55983 55983 7 7 1 0 0 0 0
+314	324799 42 55983 55983 7 7 3 0 2 2 4
+316	324841 14 55983 55983 7 7 1 1 1 1 1
+350	324855 14544 56088 678981 7 33.96 676 1546 1546 1045096 1615718416
+338	339399 6824 56029 678904 7 33.96 338 0 337 56953 12814425
+339	346223 6824 56030 678905 7 33.96 338 0 337 56953 12814425
+76	353047 13 3756 3756 2 2 1 31 31 31 961
+74	353060 12 3756 3756 2 2 1 0 0 0 0
+73	353072 36 3756 3756 2 2 3 0 2 2 4
+75	353108 12 3756 3756 2 2 1 1 1 1 1
+112	353120 18610 3786 745529 2 36.96 876 1546 1546 1354296 2093741616
+99	371730 8319 3763 745447 2 36.96 438 0 437 95703 27913375
+100	380049 8757 3764 745448 2 36.96 438 0 437 95703 27913375
+92	388806 13 3756 3756 2 2 1 31 31 31 961
+90	388819 12 3756 3756 2 2 1 0 0 0 0
+89	388831 36 3756 3756 2 2 3 0 2 2 4
+91	388867 12 3756 3756 2 2 1 1 1 1 1
+116	388879 24564 3802 984977 2 47.92 1150 1546 1546 1777900 2748633400
+107	413443 11597 3771 984884 2 47.92 575 0 574 165025 63204575
+108	425040 11597 3772 984885 2 47.92 575 0 574 165025 63204575
+313	436637 15 55983 55983 7 7 1 31 31 31 961
+311	436652 14 55983 55983 7 7 1 0 0 0 0
+310	436666 42 55983 55983 7 7 3 0 2 2 4
+312	436708 14 55983 55983 7 7 1 1 1 1 1
+349	436722 24402 56084 1071930 7 51.96 1126 1546 1546 1740796 2691270616
+336	461124 11528 56027 1071847 7 51.96 563 0 562 158203 59326125
+337	472652 11528 56028 1071848 7 51.96 563 0 562 158203 59326125
+225	484180 15 28372 28372 5 5 1 31 31 31 961
+223	484195 14 28372 28372 5 5 1 0 0 0 0
+222	484209 42 28372 28372 5 5 3 0 2 2 4
+224	484251 14 28372 28372 5 5 1 1 1 1 1
+258	484265 27072 28442 1134606 5 54.92 1250 1546 1546 1932500 2987645000
+246	511337 12801 28401 1134523 5 54.92 625 0 624 195000 81185000
+247	524138 12801 28402 1134524 5 54.92 625 0 624 195000 81185000
+467	536939 17 112819 112819 10 10 1 31 31 31 961
+465	536956 16 112819 112819 10 10 1 0 0 0 0
+464	536972 85250 112819 473972 10 24.994 4287 0 2 6428 10714
+466	622222 85218 112819 473972 10 24.994 4285 0 1 2143 2143
+494	707440 26886 112993 1218861 10 58.96 1226 1546 1546 1895396 2930282216
+484	734326 12720 112904 1218774 10 58.96 613 0 612 187578 76594350
+485	747046 12720 112905 1218775 10 58.96 613 0 612 187578 76594350
+321	759766 15 55983 55983 7 7 1 31 31 31 961
+319	759781 14 55983 55983 7 7 1 0 0 0 0
+318	759795 42 55983 55983 7 7 3 0 2 2 4
+320	759837 14 55983 55983 7 7 1 1 1 1 1
+351	759851 31218 56092 1321347 7 63.96 1426 1546 1546 2204596 3408305416
+340	791069 14786 56031 1321278 7 63.96 713 0 712 253828 120568300
+341	805855 14786 56032 1321279 7 63.96 713 0 712 253828 120568300
+0	820641 24 0 0 0 0 3 0 2 2 4
+1	820665 8 0 0 0 0 1 0 0 0 0
+2	820673 24 0 0 0 0 3 0 2 2 4
+3	820697 8 0 0 0 0 1 0 0 0 0
+4	820705 8 0 0 0 0 1 1 1 1 1
+5	820713 8 0 0 0 0 1 1 1 1 1
+6	820721 9 0 0 0 0 1 31 31 31 961
+7	820730 9 0 0 0 0 1 31 31 31 961
+8	820739 97296 5 1358745 0.016885314882 65.816885314882 3291 0 3290 5413695 11875842265
+9	918035 183649 8 1358752 0.016885314882 65.816885314882 6582 84 84 552888 46442592
+10	1101684 190231 8 1358752 0.016885314882 65.816885314882 6582 84 84 552888 46442592
+11	1291915 100588 15 1358754 0.016885314882 65.816885314882 3291 0 3290 5413695 11875842265
+12	1392503 33 696 696 1 1 3 0 2 2 4
+13	1392536 11 696 696 1 1 1 0 0 0 0
+14	1392547 11 696 696 1 1 1 1 1 1 1
+15	1392558 12 696 696 1 1 1 31 31 31 961
+16	1392570 33 696 696 1 1 3 0 2 2 4
+17	1392603 11 696 696 1 1 1 0 0 0 0
+18	1392614 11 696 696 1 1 1 1 1 1 1
+19	1392625 12 696 696 1 1 1 31 31 31 961
+24	1392637 33 696 696 1 1 3 0 2 2 4
+25	1392670 11 696 696 1 1 1 0 0 0 0
+26	1392681 11 696 696 1 1 1 1 1 1 1
+27	1392692 12 696 696 1 1 1 31 31 31 961
+28	1392704 33 696 696 1 1 3 0 2 2 4
+29	1392737 11 696 696 1 1 1 0 0 0 0
+30	1392748 11 696 696 1 1 1 1 1 1 1
+31	1392759 12 696 696 1 1 1 31 31 31 961
+32	1392771 349263 696 1359075 1 65.834 18527 0 2 27788 46314
+33	1742034 11 696 696 1 1 1 0 0 0 0
+34	1742045 349241 696 1359075 1 65.834 18525 0 1 9263 9263
+35	2091286 12 696 696 1 1 1 31 31 31 961
+36	2091298 246905 696 1359077 1 65.834 12813 0 2 19217 32029
+37	2338203 11 696 696 1 1 1 0 0 0 0
+38	2338214 246883 696 1359077 1 65.834 12811 0 1 6406 6406
+39	2585097 12 696 696 1 1 1 31 31 31 961
+40	2585109 15850 697 1358374 1 65.8 811 0 810 328455 177475185
+41	2600959 15850 698 1358375 1 65.8 811 0 810 328455 177475185
+42	2616809 15850 699 1358376 1 65.8 811 0 810 328455 177475185
+43	2632659 15850 700 1358377 1 65.8 811 0 810 328455 177475185
+46	2648509 15850 703 1358378 1 65.8 811 0 810 328455 177475185
+47	2664359 15850 704 1358379 1 65.8 811 0 810 328455 177475185
+48	2680209 15850 705 1358380 1 65.8 811 0 810 328455 177475185
+49	2696059 15850 706 1358381 1 65.8 811 0 810 328455 177475185
+50	2711909 15850 707 1358382 1 65.8 811 0 810 328455 177475185
+51	2727759 15850 708 1358383 1 65.8 811 0 810 328455 177475185
+52	2743609 15850 709 1358384 1 65.8 811 0 810 328455 177475185
+53	2759459 15850 710 1358385 1 65.8 811 0 810 328455 177475185
+54	2775309 33542 712 1358438 1 65.8 1622 1546 1546 2507612 3876768152
+55	2808851 33542 716 1358440 1 65.8 1622 1546 1546 2507612 3876768152
+57	2842393 33542 724 1358442 1 65.8 1622 1546 1546 2507612 3876768152
+58	2875935 33542 728 1358444 1 65.8 1622 1546 1546 2507612 3876768152
+59	2909477 33542 732 1358446 1 65.8 1622 1546 1546 2507612 3876768152
+60	2943019 33542 736 1358448 1 65.8 1622 1546 1546 2507612 3876768152
+61	2976561 36 3756 3756 2 2 3 0 2 2 4
+62	2976597 12 3756 3756 2 2 1 0 0 0 0
+63	2976609 12 3756 3756 2 2 1 1 1 1 1
+64	2976621 13 3756 3756 2 2 1 31 31 31 961
+65	2976634 171358 3756 1359047 2 65.833 8813 0 2 13217 22029
+66	3147992 12 3756 3756 2 2 1 0 0 0 0
+67	3148004 171334 3756 1359047 2 65.833 8811 0 1 4406 4406
+68	3319338 13 3756 3756 2 2 1 31 31 31 961
+69	3319351 36 3756 3756 2 2 3 0 2 2 4
+70	3319387 12 3756 3756 2 2 1 0 0 0 0
+71	3319399 12 3756 3756 2 2 1 1 1 1 1
+72	3319411 13 3756 3756 2 2 1 31 31 31 961
+77	3319424 36 3756 3756 2 2 3 0 2 2 4
+78	3319460 12 3756 3756 2 2 1 0 0 0 0
+79	3319472 12 3756 3756 2 2 1 1 1 1 1
+80	3319484 13 3756 3756 2 2 1 31 31 31 961
+81	3319497 36 3756 3756 2 2 3 0 2 2 4
+82	3319533 12 3756 3756 2 2 1 0 0 0 0
+83	3319545 12 3756 3756 2 2 1 1 1 1 1
+84	3319557 13 3756 3756 2 2 1 31 31 31 961
+85	3319570 36 3756 3756 2 2 3 0 2 2 4
+86	3319606 12 3756 3756 2 2 1 0 0 0 0
+87	3319618 12 3756 3756 2 2 1 1 1 1 1
+88	3319630 13 3756 3756 2 2 1 31 31 31 961
+93	3319643 15634 3757 1357547 2 65.76 798 0 797 318003 169071595
+94	3335277 15634 3758 1357548 2 65.76 798 0 797 318003 169071595
+95	3350911 15634 3759 1357549 2 65.76 798 0 797 318003 169071595
+96	3366545 15634 3760 1357550 2 65.76 798 0 797 318003 169071595
+97	3382179 15634 3761 1357551 2 65.76 798 0 797 318003 169071595
+98	3397813 15634 3762 1357552 2 65.76 798 0 797 318003 169071595
+101	3413447 16432 3765 1357553 2 65.76 798 0 797 318003 169071595
+102	3429879 16432 3766 1357554 2 65.76 798 0 797 318003 169071595
+103	3446311 16432 3767 1357555 2 65.76 798 0 797 318003 169071595
+104	3462743 16432 3768 1357556 2 65.76 798 0 797 318003 169071595
+105	3479175 16432 3769 1357557 2 65.76 798 0 797 318003 169071595
+106	3495607 16432 3770 1357558 2 65.76 798 0 797 318003 169071595
+109	3512039 34680 3774 1357618 2 65.76 1596 1546 1546 2467416 3814625136
+110	3546719 34680 3778 1357620 2 65.76 1596 1546 1546 2467416 3814625136
+111	3581399 34680 3782 1357622 2 65.76 1596 1546 1546 2467416 3814625136
+113	3616079 34680 3790 1357624 2 65.76 1596 1546 1546 2467416 3814625136
+114	3650759 34680 3794 1357626 2 65.76 1596 1546 1546 2467416 3814625136
+115	3685439 34680 3798 1357628 2 65.76 1596 1546 1546 2467416 3814625136
+117	3720119 299503 9492 1359021 3 65.832 14813 0 2 22217 37029
+118	4019622 13 9492 9492 3 3 1 0 0 0 0
+119	4019635 299477 9492 1359021 3 65.832 14811 0 1 7406 7406
+120	4319112 14 9492 9492 3 3 1 31 31 31 961
+121	4319126 39 9492 9492 3 3 3 0 2 2 4
+122	4319165 13 9492 9492 3 3 1 0 0 0 0
+123	4319178 13 9492 9492 3 3 1 1 1 1 1
+124	4319191 14 9492 9492 3 3 1 31 31 31 961
+125	4319205 39 9492 9492 3 3 3 0 2 2 4
+126	4319244 13 9492 9492 3 3 1 0 0 0 0
+127	4319257 13 9492 9492 3 3 1 1 1 1 1
+128	4319270 14 9492 9492 3 3 1 31 31 31 961
+129	4319284 39 9492 9492 3 3 3 0 2 2 4
+130	4319323 13 9492 9492 3 3 1 0 0 0 0
+131	4319336 13 9492 9492 3 3 1 1 1 1 1
+132	4319349 14 9492 9492 3 3 1 31 31 31 961
+137	4319363 39 9492 9492 3 3 3 0 2 2 4
+138	4319402 13 9492 9492 3 3 1 0 0 0 0
+139	4319415 13 9492 9492 3 3 1 1 1 1 1
+140	4319428 14 9492 9492 3 3 1 31 31 31 961
+141	4319442 39 9492 9492 3 3 3 0 2 2 4
+142	4319481 13 9492 9492 3 3 1 0 0 0 0
+143	4319494 13 9492 9492 3 3 1 1 1 1 1
+144	4319507 14 9492 9492 3 3 1 31 31 31 961
+145	4319521 16220 9507 1358386 3 65.8 786 0 785 308505 161553785
+146	4335741 16220 9508 1358387 3 65.8 786 0 785 308505 161553785
+147	4351961 16220 9509 1358388 3 65.8 786 0 785 308505 161553785
+148	4368181 16220 9510 1358389 3 65.8 786 0 785 308505 161553785
+149	4384401 16220 9511 1358390 3 65.8 786 0 785 308505 161553785
+150	4400621 16220 9512 1358391 3 65.8 786 0 785 308505 161553785
+151	4416841 16220 9513 1358392 3 65.8 786 0 785 308505 161553785
+152	4433061 16220 9514 1358393 3 65.8 786 0 785 308505 161553785
+155	4449281 16220 9517 1358394 3 65.8 786 0 785 308505 161553785
+156	4465501 16220 9518 1358395 3 65.8 786 0 785 308505 161553785
+157	4481721 16220 9519 1358396 3 65.8 786 0 785 308505 161553785
+158	4497941 16220 9520 1358397 3 65.8 786 0 785 308505 161553785
+159	4514161 34232 9536 1358450 3 65.8 1572 1546 1546 2430312 3757262352
+160	4548393 34232 9540 1358452 3 65.8 1572 1546 1546 2430312 3757262352
+161	4582625 34232 9544 1358454 3 65.8 1572 1546 1546 2430312 3757262352
+162	4616857 34232 9548 1358456 3 65.8 1572 1546 1546 2430312 3757262352
+164	4651089 34232 9556 1358458 3 65.8 1572 1546 1546 2430312 3757262352
+165	4685321 34232 9560 1358460 3 65.8 1572 1546 1546 2430312 3757262352
+166	4719553 22936 17594 1358993 4 65.831 1099 0 2 1646 2744
+167	4742489 14 17594 17594 4 4 1 0 0 0 0
+168	4742503 22908 17594 1358993 4 65.831 1097 0 1 549 549
+169	4765411 15 17594 17594 4 4 1 31 31 31 961
+170	4765426 42 17594 17594 4 4 3 0 2 2 4
+171	4765468 14 17594 17594 4 4 1 0 0 0 0
+172	4765482 14 17594 17594 4 4 1 1 1 1 1
+173	4765496 15 17594 17594 4 4 1 31 31 31 961
+174	4765511 42 17594 17594 4 4 3 0 2 2 4
+175	4765553 14 17594 17594 4 4 1 0 0 0 0
+176	4765567 14 17594 17594 4 4 1 1 1 1 1
+177	4765581 15 17594 17594 4 4 1 31 31 31 961
+178	4765596 282436 17594 1358999 4 65.831 13955 0 2 20930 34884
+179	5048032 14 17594 17594 4 4 1 0 0 0 0
+180	5048046 282408 17594 1358999 4 65.831 13953 0 1 6977 6977
+181	5330454 15 17594 17594 4 4 1 31 31 31 961
+182	5330469 42 17594 17594 4 4 3 0 2 2 4
+183	5330511 14 17594 17594 4 4 1 0 0 0 0
+184	5330525 14 17594 17594 4 4 1 1 1 1 1
+185	5330539 15 17594 17594 4 4 1 31 31 31 961
+186	5330554 42 17594 17594 4 4 3 0 2 2 4
+187	5330596 14 17594 17594 4 4 1 0 0 0 0
+188	5330610 14 17594 17594 4 4 1 1 1 1 1
+189	5330624 15 17594 17594 4 4 1 31 31 31 961
+198	5330639 15978 17611 1357559 4 65.76 773 0 772 298378 153664670
+199	5346617 15978 17612 1357560 4 65.76 773 0 772 298378 153664670
+200	5362595 15978 17613 1357561 4 65.76 773 0 772 298378 153664670
+201	5378573 15978 17614 1357562 4 65.76 773 0 772 298378 153664670
+202	5394551 15978 17615 1357563 4 65.76 773 0 772 298378 153664670
+203	5410529 15978 17616 1357564 4 65.76 773 0 772 298378 153664670
+204	5426507 15978 17617 1357565 4 65.76 773 0 772 298378 153664670
+205	5442485 15978 17618 1357566 4 65.76 773 0 772 298378 153664670
+206	5458463 15978 17619 1357567 4 65.76 773 0 772 298378 153664670
+207	5474441 15978 17620 1357568 4 65.76 773 0 772 298378 153664670
+208	5490419 15978 17621 1357569 4 65.76 773 0 772 298378 153664670
+209	5506397 15978 17622 1357570 4 65.76 773 0 772 298378 153664670
+214	5522375 33722 17644 1357630 4 65.76 1546 1546 1546 2390116 3695119336
+215	5556097 33722 17648 1357632 4 65.76 1546 1546 1546 2390116 3695119336
+216	5589819 33722 17652 1357634 4 65.76 1546 1546 1546 2390116 3695119336
+217	5623541 33722 17656 1357636 4 65.76 1546 1546 1546 2390116 3695119336
+218	5657263 33722 17660 1357638 4 65.76 1546 1546 1546 2390116 3695119336
+219	5690985 33722 17664 1357640 4 65.76 1546 1546 1546 2390116 3695119336
+226	5724707 42 28372 28372 5 5 3 0 2 2 4
+227	5724749 14 28372 28372 5 5 1 0 0 0 0
+228	5724763 14 28372 28372 5 5 1 1 1 1 1
+229	5724777 15 28372 28372 5 5 1 31 31 31 961
+234	5724792 42 28372 28372 5 5 3 0 2 2 4
+235	5724834 14 28372 28372 5 5 1 0 0 0 0
+236	5724848 14 28372 28372 5 5 1 1 1 1 1
+237	5724862 15 28372 28372 5 5 1 31 31 31 961
+238	5724877 208574 28372 1358987 5 65.83 10241 0 2 15359 25599
+239	5933451 14 28372 28372 5 5 1 0 0 0 0
+240	5933465 208546 28372 1358987 5 65.83 10239 0 1 5120 5120
+241	6142011 15 28372 28372 5 5 1 31 31 31 961
+242	6142026 219950 28372 1358989 5 65.83 10813 0 2 16217 27029
+243	6361976 14 28372 28372 5 5 1 0 0 0 0
+244	6361990 219922 28372 1358989 5 65.83 10811 0 1 5406 5406
+245	6581912 15 28372 28372 5 5 1 31 31 31 961
+248	6581927 15753 28403 1358398 5 65.8 761 0 760 289180 146614260
+249	6597680 15753 28404 1358399 5 65.8 761 0 760 289180 146614260
+252	6613433 15753 28407 1358400 5 65.8 761 0 760 289180 146614260
+253	6629186 15753 28408 1358401 5 65.8 761 0 760 289180 146614260
+254	6644939 15753 28409 1358402 5 65.8 761 0 760 289180 146614260
+255	6660692 15753 28410 1358403 5 65.8 761 0 760 289180 146614260
+256	6676445 15753 28411 1358404 5 65.8 761 0 760 289180 146614260
+257	6692198 15753 28412 1358405 5 65.8 761 0 760 289180 146614260
+259	6707951 33248 28446 1358462 5 65.8 1522 1546 1546 2353012 3637756552
+261	6741199 33248 28454 1358464 5 65.8 1522 1546 1546 2353012 3637756552
+262	6774447 33248 28458 1358466 5 65.8 1522 1546 1546 2353012 3637756552
+263	6807695 33248 28462 1358468 5 65.8 1522 1546 1546 2353012 3637756552
+264	6840943 64729 41174 1359087 6 65.836 3100 0 2 4647 7745
+265	6905672 14 41174 41174 6 6 1 0 0 0 0
+266	6905686 64701 41174 1359087 6 65.836 3098 0 1 1549 1549
+267	6970387 15 41174 41174 6 6 1 31 31 31 961
+268	6970402 42 41174 41174 6 6 3 0 2 2 4
+269	6970444 14 41174 41174 6 6 1 0 0 0 0
+270	6970458 14 41174 41174 6 6 1 1 1 1 1
+271	6970472 15 41174 41174 6 6 1 31 31 31 961
+272	6970487 76618 41174 1358975 6 65.829 3669 0 2 5501 9169
+273	7047105 14 41174 41174 6 6 1 0 0 0 0
+274	7047119 76590 41174 1358975 6 65.829 3667 0 1 1834 1834
+275	7123709 15 41174 41174 6 6 1 31 31 31 961
+276	7123724 219952 41174 1358977 6 65.829 10813 0 2 16217 27029
+277	7343676 14 41174 41174 6 6 1 0 0 0 0
+278	7343690 219924 41174 1358977 6 65.829 10811 0 1 5406 5406
+279	7563614 15 41174 41174 6 6 1 31 31 31 961
+280	7563629 42 41174 41174 6 6 3 0 2 2 4
+281	7563671 14 41174 41174 6 6 1 0 0 0 0
+282	7563685 14 41174 41174 6 6 1 1 1 1 1
+283	7563699 15 41174 41174 6 6 1 31 31 31 961
+284	7563714 122912 41174 543886 6 27.994 6287 0 2 9428 15714
+285	7686626 14 41174 41174 6 6 1 0 0 0 0
+286	7686640 122884 41174 543886 6 27.994 6285 0 1 3143 3143
+287	7809524 15 41174 41174 6 6 1 31 31 31 961
+288	7809539 15510 41207 1357571 6 65.76 748 0 747 279378 139223370
+289	7825049 15510 41208 1357572 6 65.76 748 0 747 279378 139223370
+290	7840559 15510 41209 1357573 6 65.76 748 0 747 279378 139223370
+291	7856069 15510 41210 1357574 6 65.76 748 0 747 279378 139223370
+292	7871579 15510 41211 1357575 6 65.76 748 0 747 279378 139223370
+293	7887089 15510 41212 1357576 6 65.76 748 0 747 279378 139223370
+294	7902599 15510 41213 1357577 6 65.76 748 0 747 279378 139223370
+295	7918109 15510 41214 1357578 6 65.76 748 0 747 279378 139223370
+296	7933619 15510 41215 1357579 6 65.76 748 0 747 279378 139223370
+297	7949129 15510 41216 1357580 6 65.76 748 0 747 279378 139223370
+298	7964639 15510 41217 1357581 6 65.76 748 0 747 279378 139223370
+299	7980149 15510 41218 1357582 6 65.76 748 0 747 279378 139223370
+300	7995659 32736 41252 1357642 6 65.76 1496 1546 1546 2312816 3575613536
+301	8028395 32736 41256 1357644 6 65.76 1496 1546 1546 2312816 3575613536
+302	8061131 32736 41260 1357646 6 65.76 1496 1546 1546 2312816 3575613536
+303	8093867 32736 41264 1357648 6 65.76 1496 1546 1546 2312816 3575613536
+304	8126603 32736 41268 1357650 6 65.76 1496 1546 1546 2312816 3575613536
+305	8159339 32736 41272 1357652 6 65.76 1496 1546 1546 2312816 3575613536
+306	8192075 42 55983 55983 7 7 3 0 2 2 4
+307	8192117 14 55983 55983 7 7 1 0 0 0 0
+308	8192131 14 55983 55983 7 7 1 1 1 1 1
+309	8192145 15 55983 55983 7 7 1 31 31 31 961
+322	8192160 140434 55983 1359081 7 65.835 6815 0 2 10220 17034
+323	8332594 14 55983 55983 7 7 1 0 0 0 0
+324	8332608 140406 55983 1359081 7 65.835 6813 0 1 3407 3407
+325	8473014 15 55983 55983 7 7 1 31 31 31 961
+326	8473029 42 55983 55983 7 7 3 0 2 2 4
+327	8473071 14 55983 55983 7 7 1 0 0 0 0
+328	8473085 14 55983 55983 7 7 1 1 1 1 1
+329	8473099 15 55983 55983 7 7 1 31 31 31 961
+330	8473114 40856 55983 1359085 7 65.835 1957 0 2 2933 4889
+331	8513970 14 55983 55983 7 7 1 0 0 0 0
+332	8513984 40828 55983 1359085 7 65.835 1955 0 1 978 978
+333	8554812 15 55983 55983 7 7 1 31 31 31 961
+334	8554827 15285 56025 1358406 7 65.8 736 0 735 270480 132625360
+335	8570112 15285 56026 1358407 7 65.8 736 0 735 270480 132625360
+342	8585397 15285 56033 1358408 7 65.8 736 0 735 270480 132625360
+343	8600682 15285 56034 1358409 7 65.8 736 0 735 270480 132625360
+344	8615967 15285 56035 1358410 7 65.8 736 0 735 270480 132625360
+345	8631252 15285 56036 1358411 7 65.8 736 0 735 270480 132625360
+346	8646537 15285 56037 1358412 7 65.8 736 0 735 270480 132625360
+347	8661822 15285 56038 1358413 7 65.8 736 0 735 270480 132625360
+348	8677107 32262 56080 1358470 7 65.8 1472 1546 1546 2275712 3518250752
+352	8709369 32262 56096 1358472 7 65.8 1472 1546 1546 2275712 3518250752
+353	8741631 32262 56100 1358474 7 65.8 1472 1546 1546 2275712 3518250752
+354	8773893 32262 56104 1358476 7 65.8 1472 1546 1546 2275712 3518250752
+355	8806155 100510 73141 1359057 8 65.834 4813 0 2 7217 12029
+356	8906665 14 73141 73141 8 8 1 0 0 0 0
+357	8906679 100482 73141 1359057 8 65.834 4811 0 1 2406 2406
+358	9007161 15 73141 73141 8 8 1 31 31 31 961
+359	9007176 58734 73141 1359059 8 65.834 2813 0 2 4217 7029
+360	9065910 14 73141 73141 8 8 1 0 0 0 0
+361	9065924 58706 73141 1359059 8 65.834 2811 0 1 1406 1406
+362	9124630 15 73141 73141 8 8 1 31 31 31 961
+363	9124645 42 73141 73141 8 8 3 0 2 2 4
+364	9124687 14 73141 73141 8 8 1 0 0 0 0
+365	9124701 14 73141 73141 8 8 1 1 1 1 1
+366	9124715 15 73141 73141 8 8 1 31 31 31 961
+367	9124730 42 73141 73141 8 8 3 0 2 2 4
+368	9124772 14 73141 73141 8 8 1 0 0 0 0
+369	9124786 14 73141 73141 8 8 1 1 1 1 1
+370	9124800 15 73141 73141 8 8 1 31 31 31 961
+371	9124815 42 73141 73141 8 8 3 0 2 2 4
+372	9124857 14 73141 73141 8 8 1 0 0 0 0
+373	9124871 14 73141 73141 8 8 1 1 1 1 1
+374	9124885 15 73141 73141 8 8 1 31 31 31 961
+375	9124900 15042 73200 1357583 8 65.76 723 0 722 261003 125716445
+376	9139942 15042 73201 1357584 8 65.76 723 0 722 261003 125716445
+377	9154984 15042 73202 1357585 8 65.76 723 0 722 261003 125716445
+378	9170026 15042 73203 1357586 8 65.76 723 0 722 261003 125716445
+379	9185068 15042 73204 1357587 8 65.76 723 0 722 261003 125716445
+380	9200110 15042 73205 1357588 8 65.76 723 0 722 261003 125716445
+381	9215152 15042 73206 1357589 8 65.76 723 0 722 261003 125716445
+382	9230194 15042 73207 1357590 8 65.76 723 0 722 261003 125716445
+383	9245236 15042 73208 1357591 8 65.76 723 0 722 261003 125716445
+384	9260278 15042 73209 1357592 8 65.76 723 0 722 261003 125716445
+385	9275320 31750 73255 1357654 8 65.76 1446 1546 1546 2235516 3456107736
+386	9307070 31750 73259 1357656 8 65.76 1446 1546 1546 2235516 3456107736
+387	9338820 31750 73263 1357658 8 65.76 1446 1546 1546 2235516 3456107736
+388	9370570 31750 73267 1357660 8 65.76 1446 1546 1546 2235516 3456107736
+389	9402320 31750 73271 1357662 8 65.76 1446 1546 1546 2235516 3456107736
+390	9434070 42 91963 91963 9 9 3 0 2 2 4
+391	9434112 14 91963 91963 9 9 1 0 0 0 0
+392	9434126 14 91963 91963 9 9 1 1 1 1 1
+393	9434140 15 91963 91963 9 9 1 31 31 31 961
+394	9434155 40858 91963 1359035 9 65.833 1957 0 2 2933 4889
+395	9475013 14 91963 91963 9 9 1 0 0 0 0
+396	9475027 40830 91963 1359035 9 65.833 1955 0 1 978 978
+397	9515857 15 91963 91963 9 9 1 31 31 31 961
+398	9515872 42 91963 91963 9 9 3 0 2 2 4
+399	9515914 14 91963 91963 9 9 1 0 0 0 0
+400	9515928 14 91963 91963 9 9 1 1 1 1 1
+401	9515942 15 91963 91963 9 9 1 31 31 31 961
+402	9515957 192848 91963 877387 9 42.999 9717 0 2 14573 24289
+403	9708805 14 91963 91963 9 9 1 0 0 0 0
+404	9708819 192820 91963 877387 9 42.999 9715 0 1 4858 4858
+405	9901639 15 91963 91963 9 9 1 31 31 31 961
+406	9901654 42 91963 91963 9 9 3 0 2 2 4
+407	9901696 14 91963 91963 9 9 1 0 0 0 0
+408	9901710 14 91963 91963 9 9 1 1 1 1 1
+409	9901724 15 91963 91963 9 9 1 31 31 31 961
+410	9901739 42 91963 91963 9 9 3 0 2 2 4
+411	9901781 14 91963 91963 9 9 1 0 0 0 0
+412	9901795 14 91963 91963 9 9 1 1 1 1 1
+413	9901809 15 91963 91963 9 9 1 31 31 31 961
+414	9901824 14817 92034 1358414 9 65.8 711 0 710 252405 119555835
+415	9916641 14817 92035 1358415 9 65.8 711 0 710 252405 119555835
+416	9931458 14817 92036 1358416 9 65.8 711 0 710 252405 119555835
+417	9946275 14817 92037 1358417 9 65.8 711 0 710 252405 119555835
+418	9961092 14817 92038 1358418 9 65.8 711 0 710 252405 119555835
+419	9975909 14817 92039 1358419 9 65.8 711 0 710 252405 119555835
+420	9990726 14817 92040 1358420 9 65.8 711 0 710 252405 119555835
+421	10005543 14817 92041 1358421 9 65.8 711 0 710 252405 119555835
+422	10020360 14817 92042 1358422 9 65.8 711 0 710 252405 119555835
+423	10035177 14817 92043 1358423 9 65.8 711 0 710 252405 119555835
+424	10049994 14817 92044 1358424 9 65.8 711 0 710 252405 119555835
+425	10064811 14817 92045 1358425 9 65.8 711 0 710 252405 119555835
+426	10079628 31276 92101 1358478 9 65.8 1422 1546 1546 2198412 3398744952
+427	10110904 31276 92105 1358480 9 65.8 1422 1546 1546 2198412 3398744952
+428	10142180 31276 92109 1358482 9 65.8 1422 1546 1546 2198412 3398744952
+429	10173456 31276 92113 1358484 9 65.8 1422 1546 1546 2198412 3398744952
+430	10204732 31276 92117 1358486 9 65.8 1422 1546 1546 2198412 3398744952
+431	10236008 31276 92121 1358488 9 65.8 1422 1546 1546 2198412 3398744952
+432	10267284 48 112819 112819 10 10 3 0 2 2 4
+433	10267332 16 112819 112819 10 10 1 0 0 0 0
+434	10267348 16 112819 112819 10 10 1 1 1 1 1
+435	10267364 17 112819 112819 10 10 1 31 31 31 961
+436	10267381 48 112819 112819 10 10 3 0 2 2 4
+437	10267429 16 112819 112819 10 10 1 0 0 0 0
+438	10267445 16 112819 112819 10 10 1 1 1 1 1
+439	10267461 17 112819 112819 10 10 1 31 31 31 961
+440	10267478 48 112819 112819 10 10 3 0 2 2 4
+441	10267526 16 112819 112819 10 10 1 0 0 0 0
+442	10267542 16 112819 112819 10 10 1 1 1 1 1
+443	10267558 17 112819 112819 10 10 1 31 31 31 961
+444	10267575 48 112819 112819 10 10 3 0 2 2 4
+445	10267623 16 112819 112819 10 10 1 0 0 0 0
+446	10267639 16 112819 112819 10 10 1 1 1 1 1
+447	10267655 17 112819 112819 10 10 1 31 31 31 961
+448	10267672 48 112819 112819 10 10 3 0 2 2 4
+449	10267720 16 112819 112819 10 10 1 0 0 0 0
+450	10267736 16 112819 112819 10 10 1 1 1 1 1
+451	10267752 17 112819 112819 10 10 1 31 31 31 961
+452	10267769 174496 112819 1359015 10 65.832 8527 0 2 12788 21314
+453	10442265 16 112819 112819 10 10 1 0 0 0 0
+454	10442281 174464 112819 1359015 10 65.832 8525 0 1 4263 4263
+455	10616745 17 112819 112819 10 10 1 31 31 31 961
+456	10616762 197250 112819 1359017 10 65.832 9671 0 2 14504 24174
+457	10814012 16 112819 112819 10 10 1 0 0 0 0
+458	10814028 197218 112819 1359017 10 65.832 9669 0 1 4835 4835
+459	11011246 17 112819 112819 10 10 1 31 31 31 961
+460	11011263 76670 112819 1359019 10 65.832 3671 0 2 5504 9174
+461	11087933 16 112819 112819 10 10 1 0 0 0 0
+462	11087949 76638 112819 1359019 10 65.832 3669 0 1 1835 1835
+463	11164587 17 112819 112819 10 10 1 31 31 31 961
+468	11164604 14567 112888 1357593 10 65.76 698 0 697 243253 113112645
+469	11179171 14567 112889 1357594 10 65.76 698 0 697 243253 113112645
+470	11193738 14567 112890 1357595 10 65.76 698 0 697 243253 113112645
+471	11208305 14567 112891 1357596 10 65.76 698 0 697 243253 113112645
+472	11222872 14567 112892 1357597 10 65.76 698 0 697 243253 113112645
+473	11237439 14567 112893 1357598 10 65.76 698 0 697 243253 113112645
+474	11252006 14567 112894 1357599 10 65.76 698 0 697 243253 113112645
+475	11266573 14567 112895 1357600 10 65.76 698 0 697 243253 113112645
+476	11281140 14567 112896 1357601 10 65.76 698 0 697 243253 113112645
+477	11295707 14567 112897 1357602 10 65.76 698 0 697 243253 113112645
+478	11310274 14567 112898 1357603 10 65.76 698 0 697 243253 113112645
+479	11324841 14567 112899 1357604 10 65.76 698 0 697 243253 113112645
+480	11339408 14567 112900 1357605 10 65.76 698 0 697 243253 113112645
+481	11353975 14567 112901 1357606 10 65.76 698 0 697 243253 113112645
+482	11368542 14567 112902 1357607 10 65.76 698 0 697 243253 113112645
+483	11383109 14567 112903 1357608 10 65.76 698 0 697 243253 113112645
+486	11397676 30750 112961 1357664 10 65.76 1396 1546 1546 2158216 3336601936
+487	11428426 30750 112965 1357666 10 65.76 1396 1546 1546 2158216 3336601936
+488	11459176 30750 112969 1357668 10 65.76 1396 1546 1546 2158216 3336601936
+489	11489926 30750 112973 1357670 10 65.76 1396 1546 1546 2158216 3336601936
+490	11520676 30750 112977 1357672 10 65.76 1396 1546 1546 2158216 3336601936
+491	11551426 30750 112981 1357674 10 65.76 1396 1546 1546 2158216 3336601936
+492	11582176 30750 112985 1357676 10 65.76 1396 1546 1546 2158216 3336601936
+493	11612926 30750 112989 1357678 10 65.76 1396 1546 1546 2158216 3336601936
+495	11643676 48 136687 136687 11 11 3 0 2 2 4
+496	11643724 16 136687 136687 11 11 1 0 0 0 0
+497	11643740 16 136687 136687 11 11 1 1 1 1 1
+498	11643756 17 136687 136687 11 11 1 31 31 31 961
+499	11643773 14317 136770 1358426 11 65.8 686 0 685 234955 107374435
+500	11658090 14317 136771 1358427 11 65.8 686 0 685 234955 107374435
+501	11672407 30226 136839 1358490 11 65.8 1372 1546 1546 2121112 3279239152
+490	11702633 1816 1359300 1422206 65.84 68.96 80 1546 1546 123680 191209280
+476	11704449 868 1359214 1422129 65.84 68.96 40 698 737 28700 20597580
+477	11705317 868 1359215 1422130 65.84 68.96 40 698 737 28700 20597580
+388	11706185 2952 1359288 1461882 65.84 70.96 130 1546 1546 200980 310715080
+381	11709137 1411 1359202 1461809 65.84 70.96 65 723 787 49075 37074505
+382	11710548 1411 1359203 1461810 65.84 70.96 65 723 787 49075 37074505
+353	11711959 6908 1360070 1598357 65.88 77.96 304 1546 1546 469984 726595264
+344	11718867 3302 1360002 1598290 65.88 77.96 152 736 887 123348 100389540
+345	11722169 3302 1360003 1598291 65.88 77.96 152 736 887 123348 100389540
+32	11725471 69096 1359326 1598926 65.841 77.993 3474 1 2 5211 8685
+34	11794567 69096 1359326 1598926 65.841 77.993 3474 0 1 1737 1737
+59	11863663 6604 1360042 1598329 65.88 77.96 304 1546 1546 469984 726595264
+50	11870267 3150 1359974 1598262 65.88 77.96 152 811 962 134748 119746740
+51	11873417 3150 1359975 1598263 65.88 77.96 152 811 962 134748 119746740
+430	11876567 8592 1360082 1654115 65.88 80.92 378 1546 1546 584388 903463848
+422	11885159 4107 1360014 1654057 65.88 80.92 189 711 899 152145 123039315
+423	11889266 4107 1360015 1654058 65.88 80.92 189 711 899 152145 123039315
+261	11893373 8592 1360060 1654095 65.88 80.92 378 1546 1546 584388 903463848
+252	11901965 4107 1359992 1654037 65.88 80.92 189 761 949 161595 138726315
+253	11906072 4107 1359993 1654038 65.88 80.92 189 761 949 161595 138726315
+359	11910179 191964 1359310 1964091 65.841 97.999 9190 1 2 13785 22975
+361	12102143 191964 1359310 1964091 65.841 97.999 9190 0 1 4595 4595
+386	12294107 18268 1359284 1962756 65.84 97.92 804 1546 1546 1242984 1921653264
+377	12312375 8857 1359198 1962671 65.84 97.92 402 723 1124 371247 348260305
+378	12321232 8857 1359199 1962672 65.84 97.92 402 723 1124 371247 348260305
+264	12330089 197913 1359088 1981844 65.836 98.995 9475 1 2 14213 23689
+266	12528002 197913 1359088 1981844 65.836 98.995 9475 0 1 4738 4738
+300	12725915 18856 1359270 1981298 65.84 98.96 830 1546 1546 1283180 1983796280
+288	12744771 9176 1359184 1981229 65.84 98.96 415 748 1162 396325 384446455
+289	12753947 9176 1359185 1981230 65.84 98.96 415 748 1162 396325 384446455
+330	12763123 228910 1359336 2069324 65.842 103.999 10904 1 2 16356 27260
+332	12992033 228910 1359336 2069324 65.842 103.999 10904 0 1 5452 5452
+354	13220943 21776 1360072 2068715 65.88 103.96 954 1546 1546 1474884 2280170664
+346	13242719 10624 1360004 2068654 65.88 103.96 477 736 1212 464598 461562690
+347	13253343 10624 1360005 2068655 65.88 103.96 477 736 1212 464598 461562690
+8	13263967 73395 1359099 2219483 65.836885314882 112.756885314882 2347 3291 5637 10477008 47846716510
+9	13337362 137402 1359101 2219490 65.836885314882 112.756885314882 4694 84 84 394296 33120864
+10	13474764 142096 1359101 2219490 65.836885314882 112.756885314882 4694 84 84 394296 33120864
+11	13616860 75742 1359108 2219492 65.836885314882 112.756885314882 2347 3291 5637 10477008 47846716510
+16	13692602 46330 2086673 2219669 105.006 112.762 2218 1 2 3327 5545
+18	13738932 46330 2086673 2219669 105.006 112.762 2218 0 1 1109 1109
+28	13785262 121662 1855262 2219673 92 112.762 5934 1 2 8901 14835
+30	13906924 121662 1855262 2219673 92 112.762 5934 0 1 2967 2967
+36	14028586 40692 1359328 1501487 65.841 72.995 2046 1 2 3069 5115
+38	14069278 40692 1359328 1501487 65.841 72.995 2046 0 1 1023 1023
+40	14109970 12722 1359966 2219524 65.88 112.76 587 811 1397 648048 732300110
+41	14122692 12722 1359967 2219525 65.88 112.76 587 811 1397 648048 732300110
+42	14135414 12722 1359968 2219526 65.88 112.76 587 811 1397 648048 732300110
+43	14148136 12722 1359969 2219527 65.88 112.76 587 811 1397 648048 732300110
+46	14160858 12722 1359970 2219528 65.88 112.76 587 811 1397 648048 732300110
+47	14173580 12722 1359971 2219529 65.88 112.76 587 811 1397 648048 732300110
+48	14186302 12722 1359972 2219530 65.88 112.76 587 811 1397 648048 732300110
+49	14199024 12722 1359973 2219531 65.88 112.76 587 811 1397 648048 732300110
+52	14211746 12722 1359976 2219532 65.88 112.76 587 811 1397 648048 732300110
+53	14224468 12722 1359977 2219533 65.88 112.76 587 811 1397 648048 732300110
+54	14237190 25822 1360034 2219595 65.88 112.76 1174 1546 1546 1815004 2805996184
+55	14263012 25822 1360036 2219597 65.88 112.76 1174 1546 1546 1815004 2805996184
+57	14288834 25822 1360038 2219599 65.88 112.76 1174 1546 1546 1815004 2805996184
+58	14314656 25822 1360040 2219601 65.88 112.76 1174 1546 1546 1815004 2805996184
+60	14340478 25822 1360044 2219603 65.88 112.76 1174 1546 1546 1815004 2805996184
+65	14366300 103220 1359236 1709937 65.84 83.998 5190 1 2 7785 12975
+67	14469520 103220 1359236 1709937 65.84 83.998 5190 0 1 2595 2595
+93	14572740 12707 1359160 2218848 65.84 112.72 587 798 1384 640417 715550065
+94	14585447 12707 1359161 2218849 65.84 112.72 587 798 1384 640417 715550065
+95	14598154 12707 1359162 2218850 65.84 112.72 587 798 1384 640417 715550065
+96	14610861 12707 1359163 2218851 65.84 112.72 587 798 1384 640417 715550065
+97	14623568 12707 1359164 2218852 65.84 112.72 587 798 1384 640417 715550065
+98	14636275 12707 1359165 2218853 65.84 112.72 587 798 1384 640417 715550065
+101	14648982 13294 1359166 2218854 65.84 112.72 587 798 1384 640417 715550065
+102	14662276 13294 1359167 2218855 65.84 112.72 587 798 1384 640417 715550065
+103	14675570 13294 1359168 2218856 65.84 112.72 587 798 1384 640417 715550065
+104	14688864 13294 1359169 2218857 65.84 112.72 587 798 1384 640417 715550065
+105	14702158 13294 1359170 2218858 65.84 112.72 587 798 1384 640417 715550065
+106	14715452 13294 1359171 2218859 65.84 112.72 587 798 1384 640417 715550065
+109	14728746 26992 1359246 2218919 65.84 112.72 1174 1546 1546 1815004 2805996184
+110	14755738 26992 1359248 2218921 65.84 112.72 1174 1546 1546 1815004 2805996184
+111	14782730 26992 1359250 2218923 65.84 112.72 1174 1546 1546 1815004 2805996184
+113	14809722 26992 1359252 2218925 65.84 112.72 1174 1546 1546 1815004 2805996184
+114	14836714 26992 1359254 2218927 65.84 112.72 1174 1546 1546 1815004 2805996184
+115	14863706 26992 1359256 2218929 65.84 112.72 1174 1546 1546 1815004 2805996184
+117	14890698 36804 1359148 1482039 65.839 71.999 1762 1 2 2643 4405
+119	14927502 36804 1359148 1482039 65.839 71.999 1762 0 1 881 881
+121	14964306 145520 1800861 2219728 89.002 112.767 6792 1 2 10188 16980
+123	15109826 145520 1800861 2219728 89.002 112.767 6792 0 1 3396 3396
+125	15255346 235026 1521187 2219729 74.001 112.767 11077 1 2 16615 27691
+127	15490372 235026 1521187 2219729 74.001 112.767 11077 0 1 5538 5538
+145	15725398 13284 1359978 2219534 65.88 112.76 587 786 1372 633373 700264585
+146	15738682 13284 1359979 2219535 65.88 112.76 587 786 1372 633373 700264585
+147	15751966 13284 1359980 2219536 65.88 112.76 587 786 1372 633373 700264585
+148	15765250 13284 1359981 2219537 65.88 112.76 587 786 1372 633373 700264585
+149	15778534 13284 1359982 2219538 65.88 112.76 587 786 1372 633373 700264585
+150	15791818 13284 1359983 2219539 65.88 112.76 587 786 1372 633373 700264585
+151	15805102 13284 1359984 2219540 65.88 112.76 587 786 1372 633373 700264585
+152	15818386 13284 1359985 2219541 65.88 112.76 587 786 1372 633373 700264585
+155	15831670 13284 1359986 2219542 65.88 112.76 587 786 1372 633373 700264585
+156	15844954 13284 1359987 2219543 65.88 112.76 587 786 1372 633373 700264585
+157	15858238 13284 1359988 2219544 65.88 112.76 587 786 1372 633373 700264585
+158	15871522 13284 1359989 2219545 65.88 112.76 587 786 1372 633373 700264585
+159	15884806 26996 1360046 2219605 65.88 112.76 1174 1546 1546 1815004 2805996184
+160	15911802 26996 1360048 2219607 65.88 112.76 1174 1546 1546 1815004 2805996184
+161	15938798 26996 1360050 2219609 65.88 112.76 1174 1546 1546 1815004 2805996184
+162	15965794 26996 1360052 2219611 65.88 112.76 1174 1546 1546 1815004 2805996184
+164	15992790 26996 1360054 2219613 65.88 112.76 1174 1546 1546 1815004 2805996184
+165	16019786 26996 1360056 2219615 65.88 112.76 1174 1546 1546 1815004 2805996184
+166	16046782 283756 1359120 2219700 65.838 112.766 13410 1 2 20115 33525
+168	16330538 283756 1359120 2219700 65.838 112.766 13410 0 1 6705 6705
+174	16614294 97770 1946076 2219704 97.002 112.766 4506 1 2 6759 11265
+176	16712064 97770 1946076 2219704 97.002 112.766 4506 0 1 2253 2253
+178	16809834 54682 1359126 1540437 65.838 74.994 2618 1 2 3927 6545
+180	16864516 54682 1359126 1540437 65.838 74.994 2618 0 1 1309 1309
+198	16919198 13269 1359172 2218860 65.84 112.72 587 773 1359 625742 683896090
+199	16932467 13269 1359173 2218861 65.84 112.72 587 773 1359 625742 683896090
+200	16945736 13269 1359174 2218862 65.84 112.72 587 773 1359 625742 683896090
+201	16959005 13269 1359175 2218863 65.84 112.72 587 773 1359 625742 683896090
+202	16972274 13269 1359176 2218864 65.84 112.72 587 773 1359 625742 683896090
+203	16985543 13269 1359177 2218865 65.84 112.72 587 773 1359 625742 683896090
+204	16998812 13269 1359178 2218866 65.84 112.72 587 773 1359 625742 683896090
+205	17012081 13269 1359179 2218867 65.84 112.72 587 773 1359 625742 683896090
+206	17025350 13269 1359180 2218868 65.84 112.72 587 773 1359 625742 683896090
+207	17038619 13269 1359181 2218869 65.84 112.72 587 773 1359 625742 683896090
+208	17051888 13269 1359182 2218870 65.84 112.72 587 773 1359 625742 683896090
+209	17065157 13269 1359183 2218871 65.84 112.72 587 773 1359 625742 683896090
+214	17078426 26992 1359258 2218931 65.84 112.72 1174 1546 1546 1815004 2805996184
+215	17105418 26992 1359260 2218933 65.84 112.72 1174 1546 1546 1815004 2805996184
+216	17132410 26992 1359262 2218935 65.84 112.72 1174 1546 1546 1815004 2805996184
+217	17159402 26992 1359264 2218937 65.84 112.72 1174 1546 1546 1815004 2805996184
+218	17186394 26992 1359266 2218939 65.84 112.72 1174 1546 1546 1815004 2805996184
+219	17213386 26992 1359268 2218941 65.84 112.72 1174 1546 1546 1815004 2805996184
+226	17240378 29812 2138089 2219692 108.005 112.765 1362 1 2 2043 3405
+228	17270190 29812 2138089 2219692 108.005 112.765 1362 0 1 681 681
+238	17300002 54688 1359114 1540425 65.837 74.993 2618 1 2 3927 6545
+240	17354690 54688 1359114 1540425 65.837 74.993 2618 0 1 1309 1309
+242	17409378 283756 1359116 2219696 65.837 112.765 13410 1 2 20115 33525
+244	17693134 283756 1359116 2219696 65.837 112.765 13410 0 1 6705 6705
+248	17976890 13259 1359990 2219546 65.88 112.76 587 761 1347 618698 668962810
+249	17990149 13259 1359991 2219547 65.88 112.76 587 761 1347 618698 668962810
+254	18003408 13259 1359994 2219548 65.88 112.76 587 761 1347 618698 668962810
+255	18016667 13259 1359995 2219549 65.88 112.76 587 761 1347 618698 668962810
+256	18029926 13259 1359996 2219550 65.88 112.76 587 761 1347 618698 668962810
+257	18043185 13259 1359997 2219551 65.88 112.76 587 761 1347 618698 668962810
+259	18056444 26996 1360058 2219617 65.88 112.76 1174 1546 1546 1815004 2805996184
+262	18083440 26996 1360062 2219619 65.88 112.76 1174 1546 1546 1815004 2805996184
+263	18110436 26996 1360064 2219621 65.88 112.76 1174 1546 1546 1815004 2805996184
+272	18137432 156158 1359091 1855099 65.836 91.995 7476 1 2 11214 18690
+274	18293590 156158 1359091 1855099 65.836 91.995 7476 0 1 3738 3738
+276	18449748 90528 1359093 1655486 65.836 80.998 4334 1 2 6501 10835
+278	18540276 90528 1359093 1655486 65.836 80.998 4334 0 1 2167 2167
+280	18630804 115648 1891675 2219688 94.004 112.764 5362 1 2 8043 13405
+282	18746452 115648 1891675 2219688 94.004 112.764 5362 0 1 2681 2681
+290	18862100 13244 1359186 2218872 65.84 112.72 587 748 1334 611067 652975865
+291	18875344 13244 1359187 2218873 65.84 112.72 587 748 1334 611067 652975865
+292	18888588 13244 1359188 2218874 65.84 112.72 587 748 1334 611067 652975865
+293	18901832 13244 1359189 2218875 65.84 112.72 587 748 1334 611067 652975865
+294	18915076 13244 1359190 2218876 65.84 112.72 587 748 1334 611067 652975865
+295	18928320 13244 1359191 2218877 65.84 112.72 587 748 1334 611067 652975865
+296	18941564 13244 1359192 2218878 65.84 112.72 587 748 1334 611067 652975865
+297	18954808 13244 1359193 2218879 65.84 112.72 587 748 1334 611067 652975865
+298	18968052 13244 1359194 2218880 65.84 112.72 587 748 1334 611067 652975865
+299	18981296 13244 1359195 2218881 65.84 112.72 587 748 1334 611067 652975865
+301	18994540 26992 1359272 2218943 65.84 112.72 1174 1546 1546 1815004 2805996184
+302	19021532 26992 1359274 2218945 65.84 112.72 1174 1546 1546 1815004 2805996184
+303	19048524 26992 1359276 2218947 65.84 112.72 1174 1546 1546 1815004 2805996184
+304	19075516 26992 1359278 2218949 65.84 112.72 1174 1546 1546 1815004 2805996184
+305	19102508 26992 1359280 2218951 65.84 112.72 1174 1546 1546 1815004 2805996184
+322	19129500 283714 1359332 2219679 65.842 112.763 13408 1 2 20112 33520
+324	19413214 283714 1359332 2219679 65.842 112.763 13408 0 1 6704 6704
+334	19696928 13234 1359998 2219552 65.88 112.76 587 736 1322 604023 638394785
+335	19710162 13234 1359999 2219553 65.88 112.76 587 736 1322 604023 638394785
+342	19723396 13234 1360000 2219554 65.88 112.76 587 736 1322 604023 638394785
+343	19736630 13234 1360001 2219555 65.88 112.76 587 736 1322 604023 638394785
+348	19749864 26996 1360066 2219623 65.88 112.76 1174 1546 1546 1815004 2805996184
+352	19776860 26996 1360068 2219625 65.88 112.76 1174 1546 1546 1815004 2805996184
+355	19803856 138238 1359308 1800696 65.841 88.997 6618 1 2 9927 16545
+357	19942094 138238 1359308 1800696 65.841 88.997 6618 0 1 3309 3309
+363	20080332 217082 1579753 2219663 77.006 112.762 10218 1 2 15327 25545
+365	20297414 217082 1579753 2219663 77.006 112.762 10218 0 1 5109 5109
+375	20514496 13219 1359196 2218882 65.84 112.72 587 723 1309 596392 622789390
+376	20527715 13219 1359197 2218883 65.84 112.72 587 723 1309 596392 622789390
+379	20540934 13219 1359200 2218884 65.84 112.72 587 723 1309 596392 622789390
+380	20554153 13219 1359201 2218885 65.84 112.72 587 723 1309 596392 622789390
+383	20567372 13219 1359204 2218886 65.84 112.72 587 723 1309 596392 622789390
+384	20580591 13219 1359205 2218887 65.84 112.72 587 723 1309 596392 622789390
+385	20593810 26992 1359282 2218953 65.84 112.72 1174 1546 1546 1815004 2805996184
+387	20620802 26992 1359286 2218955 65.84 112.72 1174 1546 1546 1815004 2805996184
+389	20647794 26992 1359290 2218957 65.84 112.72 1174 1546 1546 1815004 2805996184
+390	20674786 223056 1560219 2219639 76.004 112.761 10504 1 2 15756 26260
+392	20897842 223056 1560219 2219639 76.004 112.761 10504 0 1 5252 5252
+394	21120898 174040 1359224 1909568 65.84 94.995 8332 1 2 12498 20830
+396	21294938 174040 1359224 1909568 65.84 94.995 8332 0 1 4166 4166
+410	21468978 181280 1691976 2219647 83.004 112.761 8504 1 2 12756 21260
+412	21650258 181280 1691976 2219647 83.004 112.761 8504 0 1 4252 4252
+414	21831538 13209 1360006 2219556 65.88 112.76 587 711 1297 589348 608560510
+415	21844747 13209 1360007 2219557 65.88 112.76 587 711 1297 589348 608560510
+416	21857956 13209 1360008 2219558 65.88 112.76 587 711 1297 589348 608560510
+417	21871165 13209 1360009 2219559 65.88 112.76 587 711 1297 589348 608560510
+418	21884374 13209 1360010 2219560 65.88 112.76 587 711 1297 589348 608560510
+419	21897583 13209 1360011 2219561 65.88 112.76 587 711 1297 589348 608560510
+420	21910792 13209 1360012 2219562 65.88 112.76 587 711 1297 589348 608560510
+421	21924001 13209 1360013 2219563 65.88 112.76 587 711 1297 589348 608560510
+424	21937210 13209 1360016 2219564 65.88 112.76 587 711 1297 589348 608560510
+425	21950419 13209 1360017 2219565 65.88 112.76 587 711 1297 589348 608560510
+426	21963628 26996 1360074 2219627 65.88 112.76 1174 1546 1546 1815004 2805996184
+427	21990624 26996 1360076 2219629 65.88 112.76 1174 1546 1546 1815004 2805996184
+428	22017620 26996 1360078 2219631 65.88 112.76 1174 1546 1546 1815004 2805996184
+429	22044616 26996 1360080 2219633 65.88 112.76 1174 1546 1546 1815004 2805996184
+431	22071612 26996 1360084 2219635 65.88 112.76 1174 1546 1546 1815004 2805996184
+440	22098608 205174 1618047 2219716 79.006 112.767 9648 1 2 14472 24120
+442	22303782 205174 1618047 2219716 79.006 112.767 9648 0 1 4824 4824
+452	22508956 283754 1359142 2219720 65.839 112.767 13410 1 2 20115 33525
+454	22792710 283754 1359142 2219720 65.839 112.767 13410 0 1 6705 6705
+456	23076464 283754 1359144 2219722 65.839 112.767 13410 1 2 20115 33525
+458	23360218 283754 1359144 2219722 65.839 112.767 13410 0 1 6705 6705
+460	23643972 283754 1359146 2219724 65.839 112.767 13410 1 2 20115 33525
+462	23927726 283754 1359146 2219724 65.839 112.767 13410 0 1 6705 6705
+468	24211480 13194 1359206 2218888 65.84 112.72 587 698 1284 581717 593336665
+469	24224674 13194 1359207 2218889 65.84 112.72 587 698 1284 581717 593336665
+470	24237868 13194 1359208 2218890 65.84 112.72 587 698 1284 581717 593336665
+471	24251062 13194 1359209 2218891 65.84 112.72 587 698 1284 581717 593336665
+472	24264256 13194 1359210 2218892 65.84 112.72 587 698 1284 581717 593336665
+473	24277450 13194 1359211 2218893 65.84 112.72 587 698 1284 581717 593336665
+474	24290644 13194 1359212 2218894 65.84 112.72 587 698 1284 581717 593336665
+475	24303838 13194 1359213 2218895 65.84 112.72 587 698 1284 581717 593336665
+478	24317032 13194 1359216 2218896 65.84 112.72 587 698 1284 581717 593336665
+479	24330226 13194 1359217 2218897 65.84 112.72 587 698 1284 581717 593336665
+480	24343420 13194 1359218 2218898 65.84 112.72 587 698 1284 581717 593336665
+481	24356614 13194 1359219 2218899 65.84 112.72 587 698 1284 581717 593336665
+482	24369808 13194 1359220 2218900 65.84 112.72 587 698 1284 581717 593336665
+483	24383002 13194 1359221 2218901 65.84 112.72 587 698 1284 581717 593336665
+486	24396196 26992 1359292 2218959 65.84 112.72 1174 1546 1546 1815004 2805996184
+487	24423188 26992 1359294 2218961 65.84 112.72 1174 1546 1546 1815004 2805996184
+488	24450180 26992 1359296 2218963 65.84 112.72 1174 1546 1546 1815004 2805996184
+489	24477172 26992 1359298 2218965 65.84 112.72 1174 1546 1546 1815004 2805996184
+491	24504164 26992 1359302 2218967 65.84 112.72 1174 1546 1546 1815004 2805996184
+492	24531156 26992 1359304 2218969 65.84 112.72 1174 1546 1546 1815004 2805996184
+493	24558148 26992 1359306 2218971 65.84 112.72 1174 1546 1546 1815004 2805996184
+499	24585140 13184 1360018 2219566 65.88 112.76 587 686 1272 574673 579459985
+500	24598324 13184 1360019 2219567 65.88 112.76 587 686 1272 574673 579459985
+501	24611508 26996 1360086 2219637 65.88 112.76 1174 1546 1546 1815004 2805996184
+262	24638504 2468 2220990 2290955 112.84 116.92 104 1546 1546 160784 248572064
+254	24640972 1234 2220941 2290894 112.84 116.92 52 1348 1399 71422 98109830
+255	24642206 1234 2220942 2290895 112.84 116.92 52 1348 1399 71422 98109830
+60	24643440 3500 2220974 2324573 112.84 118.92 154 1546 1546 238084 368077864
+52	24646940 1750 2220925 2324504 112.84 118.92 77 1398 1474 110572 158819430
+53	24648690 1750 2220926 2324505 112.84 118.92 77 1398 1474 110572 158819430
+113	24650440 4272 2220274 2341057 112.8 119.92 180 1546 1546 278280 430220880
+101	24654712 2136 2220214 2340988 112.8 119.92 90 1385 1474 128655 183973065
+102	24656848 2136 2220215 2340989 112.8 119.92 90 1385 1474 128655 183973065
+8	24658984 11584 2219874 2342248 112.776885314882 119.996885314882 362 5638 5999 2106297 12259442225
+9	24670568 21720 2219876 2342255 112.776885314882 119.996885314882 724 84 84 60816 5108544
+10	24692288 22444 2219876 2342255 112.776885314882 119.996885314882 724 84 84 60816 5108544
+11	24714732 11946 2219883 2342257 112.776885314882 119.996885314882 362 5638 5999 2106297 12259442225
+16	24726678 43190 2219767 2342387 112.769 120 2068 1 2 3102 5170
+18	24769868 43190 2219767 2342387 112.769 120 2068 0 1 1034 1034
+28	24813058 43190 2219771 2342391 112.769 120 2068 1 2 3102 5170
+30	24856248 43190 2219771 2342391 112.769 120 2068 0 1 1034 1034
+40	24899438 2044 2220917 2341668 112.84 119.96 90 1398 1487 129825 187333305
+41	24901482 2044 2220918 2341669 112.84 119.96 90 1398 1487 129825 187333305
+42	24903526 2044 2220919 2341670 112.84 119.96 90 1398 1487 129825 187333305
+43	24905570 2044 2220920 2341671 112.84 119.96 90 1398 1487 129825 187333305
+46	24907614 2044 2220921 2341672 112.84 119.96 90 1398 1487 129825 187333305
+47	24909658 2044 2220922 2341673 112.84 119.96 90 1398 1487 129825 187333305
+48	24911702 2044 2220923 2341674 112.84 119.96 90 1398 1487 129825 187333305
+49	24913746 2044 2220924 2341675 112.84 119.96 90 1398 1487 129825 187333305
+54	24915790 4088 2220966 2341719 112.84 119.96 180 1546 1546 278280 430220880
+55	24919878 4088 2220968 2341721 112.84 119.96 180 1546 1546 278280 430220880
+57	24923966 4088 2220970 2341723 112.84 119.96 180 1546 1546 278280 430220880
+58	24928054 4088 2220972 2341725 112.84 119.96 180 1546 1546 278280 430220880
+69	24932142 29874 2258059 2342314 115.001 119.999 1430 1 2 2145 3575
+71	24962016 29874 2258059 2342314 115.001 119.999 1430 0 1 715 715
+93	24991890 2066 2220208 2342326 112.8 120 91 1385 1475 130130 186148690
+94	24993956 2066 2220209 2342327 112.8 120 91 1385 1475 130130 186148690
+95	24996022 2066 2220210 2342328 112.8 120 91 1385 1475 130130 186148690
+96	24998088 2066 2220211 2342329 112.8 120 91 1385 1475 130130 186148690
+97	25000154 2066 2220212 2342330 112.8 120 91 1385 1475 130130 186148690
+98	25002220 2066 2220213 2342331 112.8 120 91 1385 1475 130130 186148690
+103	25004286 2157 2220216 2342332 112.8 120 91 1385 1475 130130 186148690
+104	25006443 2157 2220217 2342333 112.8 120 91 1385 1475 130130 186148690
+105	25008600 2157 2220218 2342334 112.8 120 91 1385 1475 130130 186148690
+106	25010757 2157 2220219 2342335 112.8 120 91 1385 1475 130130 186148690
+109	25012914 4314 2220268 2342393 112.8 120 182 1546 1546 281372 435001112
+110	25017228 4314 2220270 2342395 112.8 120 182 1546 1546 281372 435001112
+111	25021542 4314 2220272 2342397 112.8 120 182 1546 1546 281372 435001112
+114	25025856 4314 2220276 2342399 112.8 120 182 1546 1546 281372 435001112
+115	25030170 4314 2220278 2342401 112.8 120 182 1546 1546 281372 435001112
+121	25034484 45220 2219826 2342290 112.774 119.998 2066 1 2 3099 5165
+123	25079704 45220 2219826 2342290 112.774 119.998 2066 0 1 1033 1033
+125	25124924 45242 2219730 2342292 112.767 119.998 2067 1 2 3101 5169
+127	25170166 45242 2219730 2342292 112.767 119.998 2067 0 1 1034 1034
+145	25215408 2134 2220927 2341676 112.84 119.96 90 1373 1462 127575 180898305
+146	25217542 2134 2220928 2341677 112.84 119.96 90 1373 1462 127575 180898305
+147	25219676 2134 2220929 2341678 112.84 119.96 90 1373 1462 127575 180898305
+148	25221810 2134 2220930 2341679 112.84 119.96 90 1373 1462 127575 180898305
+149	25223944 2134 2220931 2341680 112.84 119.96 90 1373 1462 127575 180898305
+150	25226078 2134 2220932 2341681 112.84 119.96 90 1373 1462 127575 180898305
+151	25228212 2134 2220933 2341682 112.84 119.96 90 1373 1462 127575 180898305
+152	25230346 2134 2220934 2341683 112.84 119.96 90 1373 1462 127575 180898305
+155	25232480 2134 2220935 2341684 112.84 119.96 90 1373 1462 127575 180898305
+156	25234614 2134 2220936 2341685 112.84 119.96 90 1373 1462 127575 180898305
+157	25236748 2134 2220937 2341686 112.84 119.96 90 1373 1462 127575 180898305
+158	25238882 2134 2220938 2341687 112.84 119.96 90 1373 1462 127575 180898305
+159	25241016 4268 2220976 2341727 112.84 119.96 180 1546 1546 278280 430220880
+160	25245284 4268 2220978 2341729 112.84 119.96 180 1546 1546 278280 430220880
+161	25249552 4268 2220980 2341731 112.84 119.96 180 1546 1546 278280 430220880
+162	25253820 4268 2220982 2341733 112.84 119.96 180 1546 1546 278280 430220880
+164	25258088 4268 2220984 2341735 112.84 119.96 180 1546 1546 278280 430220880
+165	25262356 4268 2220986 2341737 112.84 119.96 180 1546 1546 278280 430220880
+166	25266624 45220 2219798 2342262 112.773 119.997 2066 1 2 3099 5165
+168	25311844 45220 2219798 2342262 112.773 119.997 2066 0 1 1033 1033
+174	25357064 45220 2219802 2342266 112.773 119.997 2066 1 2 3099 5165
+176	25402284 45220 2219802 2342266 112.773 119.997 2066 0 1 1033 1033
+198	25447504 2157 2220220 2342336 112.8 120 91 1360 1450 127855 179699065
+199	25449661 2157 2220221 2342337 112.8 120 91 1360 1450 127855 179699065
+200	25451818 2157 2220222 2342338 112.8 120 91 1360 1450 127855 179699065
+201	25453975 2157 2220223 2342339 112.8 120 91 1360 1450 127855 179699065
+202	25456132 2157 2220224 2342340 112.8 120 91 1360 1450 127855 179699065
+203	25458289 2157 2220225 2342341 112.8 120 91 1360 1450 127855 179699065
+204	25460446 2157 2220226 2342342 112.8 120 91 1360 1450 127855 179699065
+205	25462603 2157 2220227 2342343 112.8 120 91 1360 1450 127855 179699065
+206	25464760 2157 2220228 2342344 112.8 120 91 1360 1450 127855 179699065
+207	25466917 2157 2220229 2342345 112.8 120 91 1360 1450 127855 179699065
+208	25469074 2157 2220230 2342346 112.8 120 91 1360 1450 127855 179699065
+209	25471231 2157 2220231 2342347 112.8 120 91 1360 1450 127855 179699065
+214	25473388 4314 2220280 2342403 112.8 120 182 1546 1546 281372 435001112
+215	25477702 4314 2220282 2342405 112.8 120 182 1546 1546 281372 435001112
+216	25482016 4314 2220284 2342407 112.8 120 182 1546 1546 281372 435001112
+217	25486330 4314 2220286 2342409 112.8 120 182 1546 1546 281372 435001112
+218	25490644 4314 2220288 2342411 112.8 120 182 1546 1546 281372 435001112
+219	25494958 4314 2220290 2342413 112.8 120 182 1546 1546 281372 435001112
+226	25499272 45220 2219790 2342245 112.772 119.996 2066 1 2 3099 5165
+228	25544492 45220 2219790 2342245 112.772 119.996 2066 0 1 1033 1033
+242	25589712 20226 2219794 2275063 112.772 115.999 924 1 2 1386 2310
+244	25609938 20226 2219794 2275063 112.772 115.999 924 0 1 462 462
+248	25630164 2134 2220939 2341688 112.84 119.96 90 1348 1437 125325 174575805
+249	25632298 2134 2220940 2341689 112.84 119.96 90 1348 1437 125325 174575805
+256	25634432 2134 2220943 2341690 112.84 119.96 90 1348 1437 125325 174575805
+257	25636566 2134 2220944 2341691 112.84 119.96 90 1348 1437 125325 174575805
+259	25638700 4268 2220988 2341739 112.84 119.96 180 1546 1546 278280 430220880
+263	25642968 4268 2220992 2341741 112.84 119.96 180 1546 1546 278280 430220880
+280	25647236 45222 2219786 2342241 112.771 119.995 2066 1 2 3099 5165
+282	25692458 45222 2219786 2342241 112.771 119.995 2066 0 1 1033 1033
+290	25737680 2157 2220232 2342348 112.8 120 91 1335 1425 125580 173363190
+291	25739837 2157 2220233 2342349 112.8 120 91 1335 1425 125580 173363190
+292	25741994 2157 2220234 2342350 112.8 120 91 1335 1425 125580 173363190
+293	25744151 2157 2220235 2342351 112.8 120 91 1335 1425 125580 173363190
+294	25746308 2157 2220236 2342352 112.8 120 91 1335 1425 125580 173363190
+295	25748465 2157 2220237 2342353 112.8 120 91 1335 1425 125580 173363190
+296	25750622 2157 2220238 2342354 112.8 120 91 1335 1425 125580 173363190
+297	25752779 2157 2220239 2342355 112.8 120 91 1335 1425 125580 173363190
+298	25754936 2157 2220240 2342356 112.8 120 91 1335 1425 125580 173363190
+299	25757093 2157 2220241 2342357 112.8 120 91 1335 1425 125580 173363190
+301	25759250 4314 2220292 2342415 112.8 120 182 1546 1546 281372 435001112
+302	25763564 4314 2220294 2342417 112.8 120 182 1546 1546 281372 435001112
+303	25767878 4314 2220296 2342419 112.8 120 182 1546 1546 281372 435001112
+304	25772192 4314 2220298 2342421 112.8 120 182 1546 1546 281372 435001112
+305	25776506 4314 2220300 2342423 112.8 120 182 1546 1546 281372 435001112
+322	25780820 45220 2219777 2342232 112.77 119.994 2066 1 2 3099 5165
+324	25826040 45220 2219777 2342232 112.77 119.994 2066 0 1 1033 1033
+334	25871260 2134 2220945 2341692 112.84 119.96 90 1323 1412 123075 168365805
+335	25873394 2134 2220946 2341693 112.84 119.96 90 1323 1412 123075 168365805
+342	25875528 2134 2220947 2341694 112.84 119.96 90 1323 1412 123075 168365805
+343	25877662 2134 2220948 2341695 112.84 119.96 90 1323 1412 123075 168365805
+348	25879796 4268 2220994 2341743 112.84 119.96 180 1546 1546 278280 430220880
+352	25884064 4268 2220996 2341745 112.84 119.96 180 1546 1546 278280 430220880
+363	25888332 45258 2219761 2342381 112.769 120 2068 1 2 3102 5170
+365	25933590 45258 2219761 2342381 112.769 120 2068 0 1 1034 1034
+375	25978848 2157 2220242 2342358 112.8 120 91 1310 1400 123305 167141065
+376	25981005 2157 2220243 2342359 112.8 120 91 1310 1400 123305 167141065
+379	25983162 2157 2220244 2342360 112.8 120 91 1310 1400 123305 167141065
+380	25985319 2157 2220245 2342361 112.8 120 91 1310 1400 123305 167141065
+383	25987476 2157 2220246 2342362 112.8 120 91 1310 1400 123305 167141065
+384	25989633 2157 2220247 2342363 112.8 120 91 1310 1400 123305 167141065
+385	25991790 4314 2220302 2342425 112.8 120 182 1546 1546 281372 435001112
+387	25996104 4314 2220304 2342427 112.8 120 182 1546 1546 281372 435001112
+389	26000418 4314 2220306 2342429 112.8 120 182 1546 1546 281372 435001112
+390	26004732 45266 2219737 2342300 112.768 119.999 2068 1 2 3102 5170
+392	26049998 45266 2219737 2342300 112.768 119.999 2068 0 1 1034 1034
+410	26095264 45266 2219745 2342308 112.768 119.999 2068 1 2 3102 5170
+412	26140530 45266 2219745 2342308 112.768 119.999 2068 0 1 1034 1034
+414	26185796 2134 2220949 2341696 112.84 119.96 90 1298 1387 120825 162268305
+415	26187930 2134 2220950 2341697 112.84 119.96 90 1298 1387 120825 162268305
+416	26190064 2134 2220951 2341698 112.84 119.96 90 1298 1387 120825 162268305
+417	26192198 2134 2220952 2341699 112.84 119.96 90 1298 1387 120825 162268305
+418	26194332 2134 2220953 2341700 112.84 119.96 90 1298 1387 120825 162268305
+419	26196466 2134 2220954 2341701 112.84 119.96 90 1298 1387 120825 162268305
+420	26198600 2134 2220955 2341702 112.84 119.96 90 1298 1387 120825 162268305
+421	26200734 2134 2220956 2341703 112.84 119.96 90 1298 1387 120825 162268305
+424	26202868 2134 2220957 2341704 112.84 119.96 90 1298 1387 120825 162268305
+425	26205002 2134 2220958 2341705 112.84 119.96 90 1298 1387 120825 162268305
+426	26207136 4268 2220998 2341747 112.84 119.96 180 1546 1546 278280 430220880
+427	26211404 4268 2221000 2341749 112.84 119.96 180 1546 1546 278280 430220880
+428	26215672 4268 2221002 2341751 112.84 119.96 180 1546 1546 278280 430220880
+429	26219940 4268 2221004 2341753 112.84 119.96 180 1546 1546 278280 430220880
+431	26224208 4268 2221006 2341755 112.84 119.96 180 1546 1546 278280 430220880
+436	26228476 43776 2223800 2342276 113.005 119.998 2000 1 2 3000 5000
+438	26272252 43776 2223800 2342276 113.005 119.998 2000 0 1 1000 1000
+440	26316028 45220 2219814 2342278 112.774 119.998 2066 1 2 3099 5165
+442	26361248 45220 2219814 2342278 112.774 119.998 2066 0 1 1033 1033
+452	26406468 45220 2219818 2342282 112.774 119.998 2066 1 2 3099 5165
+454	26451688 45220 2219818 2342282 112.774 119.998 2066 0 1 1033 1033
+456	26496908 45220 2219820 2342284 112.774 119.998 2066 1 2 3099 5165
+458	26542128 45220 2219820 2342284 112.774 119.998 2066 0 1 1033 1033
+460	26587348 45220 2219822 2342286 112.774 119.998 2066 1 2 3099 5165
+462	26632568 45220 2219822 2342286 112.774 119.998 2066 0 1 1033 1033
+468	26677788 2157 2220248 2342364 112.8 120 91 1285 1375 121030 161032690
+469	26679945 2157 2220249 2342365 112.8 120 91 1285 1375 121030 161032690
+470	26682102 2157 2220250 2342366 112.8 120 91 1285 1375 121030 161032690
+471	26684259 2157 2220251 2342367 112.8 120 91 1285 1375 121030 161032690
+472	26686416 2157 2220252 2342368 112.8 120 91 1285 1375 121030 161032690
+473	26688573 2157 2220253 2342369 112.8 120 91 1285 1375 121030 161032690
+474	26690730 2157 2220254 2342370 112.8 120 91 1285 1375 121030 161032690
+475	26692887 2157 2220255 2342371 112.8 120 91 1285 1375 121030 161032690
+478	26695044 2157 2220256 2342372 112.8 120 91 1285 1375 121030 161032690
+479	26697201 2157 2220257 2342373 112.8 120 91 1285 1375 121030 161032690
+480	26699358 2157 2220258 2342374 112.8 120 91 1285 1375 121030 161032690
+481	26701515 2157 2220259 2342375 112.8 120 91 1285 1375 121030 161032690
+482	26703672 2157 2220260 2342376 112.8 120 91 1285 1375 121030 161032690
+483	26705829 2157 2220261 2342377 112.8 120 91 1285 1375 121030 161032690
+486	26707986 4314 2220308 2342431 112.8 120 182 1546 1546 281372 435001112
+487	26712300 4314 2220310 2342433 112.8 120 182 1546 1546 281372 435001112
+488	26716614 4314 2220312 2342435 112.8 120 182 1546 1546 281372 435001112
+489	26720928 4314 2220314 2342437 112.8 120 182 1546 1546 281372 435001112
+491	26725242 4314 2220316 2342439 112.8 120 182 1546 1546 281372 435001112
+492	26729556 4314 2220318 2342441 112.8 120 182 1546 1546 281372 435001112
+493	26733870 4314 2220320 2342443 112.8 120 182 1546 1546 281372 435001112
+499	26738184 2134 2220959 2341706 112.84 119.96 90 1273 1362 118575 156283305
+500	26740318 2134 2220960 2341707 112.84 119.96 90 1273 1362 118575 156283305
+501	26742452 4268 2221008 2341757 112.84 119.96 180 1546 1546 278280 430220880
+

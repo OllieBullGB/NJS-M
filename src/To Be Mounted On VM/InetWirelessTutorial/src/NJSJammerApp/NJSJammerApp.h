@@ -19,6 +19,8 @@
 #include <omnetpp.h>
 #include "inet/applications/pingapp/PingApp.h"
 #include "inet/applications/base/ApplicationBase.h"
+#include "inet/physicallayer/contract/packetlevel/IRadio.h"
+#include "inet/physicallayer/contract/packetlevel/IRadioMedium.h"
 #include "inet/transportlayer/contract/udp/UdpSocket.h"
 #include "inet/networklayer/common/L3AddressResolver.h"
 #include "inet/linklayer/ieee80211/mac/Ieee80211Mac.h"

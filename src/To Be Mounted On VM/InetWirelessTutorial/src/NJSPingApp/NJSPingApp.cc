@@ -157,8 +157,6 @@ int NJSPingApp::getCurrentNJSState()
         }
 
         physicallayer::IRadio::RadioMode radioMode = radio->getRadioMode();
-        EV_INFO << "NJS Radio State:" << physicallayer::IRadio::getRadioModeName(radioMode) << endl;
-
         physicallayer::IRadio::ReceptionState receptionState = radio->getReceptionState();
         physicallayer::IRadio::TransmissionState transmissionState = radio->getTransmissionState();
 

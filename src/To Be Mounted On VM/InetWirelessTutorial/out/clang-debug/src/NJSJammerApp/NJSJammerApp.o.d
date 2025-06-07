@@ -42,64 +42,6 @@
   /home/veins/src/inet/src/inet/common/packet/Message.h \
   /home/veins/src/inet/src/inet/transportlayer/common/CrcMode_m.h \
   /home/veins/src/inet/src/inet/common/INETDefs_m.h \
-  /home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpSocket.h \
-  /home/veins/src/inet/src/inet/networklayer/contract/IInterfaceTable.h \
-  /home/veins/src/inet/src/inet/networklayer/common/InterfaceEntry.h \
-  /home/veins/src/inet/src/inet/common/Simsignals.h \
-  /home/veins/src/inet/src/inet/common/Simsignals_m.h \
-  /home/veins/src/inet/src/inet/networklayer/common/InterfaceToken.h \
-  /home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo.h \
-  /home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo_m.h \
-  /home/veins/src/inet/src/inet/networklayer/common/IpProtocolId_m.h \
-  /home/veins/src/inet/src/inet/networklayer/common/L3Address_m.h \
-  /home/veins/src/inet/src/inet/networklayer/common/L3AddressResolver.h \
-  /home/veins/src/inet/src/inet/networklayer/contract/IRoutingTable.h \
-  /home/veins/src/inet/src/inet/networklayer/contract/IRoute.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Mac.h \
-  /home/veins/src/inet/src/inet/linklayer/base/MacProtocolBase.h \
-  /home/veins/src/inet/src/inet/common/LayeredProtocolBase.h \
-  /home/veins/src/inet/src/inet/queueing/contract/IPacketQueue.h \
-  /home/veins/src/inet/src/inet/queueing/contract/IPacketCollection.h \
-  /home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSink.h \
-  /home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSource.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IDs.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/Chunk_m.h \
-  /home/veins/src/inet/src/inet/common/Units_m.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/BitCountChunk.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/ByteCountChunk.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/cPacketChunk.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/SequenceChunk.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/SliceChunk.h \
-  /home/veins/src/inet/src/inet/common/packet/chunk/FieldsChunk.h \
-  /home/veins/src/inet/src/inet/linklayer/common/FcsMode_m.h \
-  /home/veins/src/inet/src/inet/linklayer/common/MacAddress_m.h \
-  /home/veins/src/inet/src/inet/common/BitVector.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/common/Ieee80211Defs.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateControl.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211ModeSet.h \
-  /home/veins/src/inet/src/inet/common/DelayedInitializer.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode.h \
-  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation.h \
-  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPrintableObject.h \
-  /home/veins/src/inet/src/inet/physicallayer/base/packetlevel/PhysicalLayerDefs.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211PhyHeader_m.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211ControlInfo_m.h \
-  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/RadioControlInfo_m.h \
-  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation_m.h \
-  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IApskModulation.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode_m.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211OfdmModulation.h \
-  /home/veins/src/inet/src/inet/physicallayer/base/packetlevel/ApskModulationBase.h \
-  /home/veins/src/inet/src/inet/common/ShortBitVector.h \
-  /home/veins/src/inet/src/inet/physicallayer/apskradio/bitlevel/ApskSymbol.h \
-  /home/veins/src/inet/src/inet/physicallayer/contract/bitlevel/ISymbol.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel_m.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Band.h \
-  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateSelection.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRx.h \
-  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IContention.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IRadio.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IAntenna.h \
   /home/veins/src/inet/src/inet/mobility/contract/IMobility.h \
@@ -107,6 +49,8 @@
   /home/veins/src/inet/src/inet/common/geometry/common/Quaternion.h \
   /home/veins/src/inet/src/inet/common/geometry/common/EulerAngles.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IAntennaGain.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPrintableObject.h \
+  /home/veins/src/inet/src/inet/physicallayer/base/packetlevel/PhysicalLayerDefs.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPhysicalLayer.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IReceiver.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IInterference.h \
@@ -131,11 +75,89 @@
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IListeningDecision.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IReceptionDecision.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IReceptionResult.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/RadioControlInfo_m.h \
+  /home/veins/src/inet/src/inet/common/Units_m.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation_m.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IApskModulation.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ISnir.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ISignal.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IArrival.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPhysicalLayerFrame.h \
   /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ITransmitter.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IRadioMedium.h \
+  /home/veins/src/inet/src/inet/environment/contract/IMaterial.h \
+  /home/veins/src/inet/src/inet/environment/contract/IPhysicalEnvironment.h \
+  /home/veins/src/inet/src/inet/common/IVisitor.h \
+  /home/veins/src/inet/src/inet/common/geometry/common/RotationMatrix.h \
+  /home/veins/src/inet/src/inet/environment/contract/IGround.h \
+  /home/veins/src/inet/src/inet/environment/contract/IMaterialRegistry.h \
+  /home/veins/src/inet/src/inet/environment/common/Material.h \
+  /home/veins/src/inet/src/inet/environment/contract/IObjectCache.h \
+  /home/veins/src/inet/src/inet/common/geometry/object/LineSegment.h \
+  /home/veins/src/inet/src/inet/common/geometry/base/GeometricObjectBase.h \
+  /home/veins/src/inet/src/inet/environment/contract/IPhysicalObject.h \
+  /home/veins/src/inet/src/inet/common/geometry/base/ShapeBase.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IAnalogModel.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IBackgroundNoise.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ICommunicationCache.h \
+  /home/veins/src/inet/src/inet/common/IntervalTree.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IMediumLimitCache.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/INeighborCache.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IObstacleLoss.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPathLoss.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPropagation.h \
+  /home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpSocket.h \
+  /home/veins/src/inet/src/inet/networklayer/contract/IInterfaceTable.h \
+  /home/veins/src/inet/src/inet/networklayer/common/InterfaceEntry.h \
+  /home/veins/src/inet/src/inet/common/Simsignals.h \
+  /home/veins/src/inet/src/inet/common/Simsignals_m.h \
+  /home/veins/src/inet/src/inet/networklayer/common/InterfaceToken.h \
+  /home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo.h \
+  /home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo_m.h \
+  /home/veins/src/inet/src/inet/networklayer/common/IpProtocolId_m.h \
+  /home/veins/src/inet/src/inet/networklayer/common/L3Address_m.h \
+  /home/veins/src/inet/src/inet/networklayer/common/L3AddressResolver.h \
+  /home/veins/src/inet/src/inet/networklayer/contract/IRoutingTable.h \
+  /home/veins/src/inet/src/inet/networklayer/contract/IRoute.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Mac.h \
+  /home/veins/src/inet/src/inet/linklayer/base/MacProtocolBase.h \
+  /home/veins/src/inet/src/inet/common/LayeredProtocolBase.h \
+  /home/veins/src/inet/src/inet/queueing/contract/IPacketQueue.h \
+  /home/veins/src/inet/src/inet/queueing/contract/IPacketCollection.h \
+  /home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSink.h \
+  /home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSource.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IDs.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Frame_m.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/Chunk_m.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/BitCountChunk.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/ByteCountChunk.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/cPacketChunk.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/SequenceChunk.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/SliceChunk.h \
+  /home/veins/src/inet/src/inet/common/packet/chunk/FieldsChunk.h \
+  /home/veins/src/inet/src/inet/linklayer/common/FcsMode_m.h \
+  /home/veins/src/inet/src/inet/linklayer/common/MacAddress_m.h \
+  /home/veins/src/inet/src/inet/common/BitVector.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/common/Ieee80211Defs.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateControl.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211ModeSet.h \
+  /home/veins/src/inet/src/inet/common/DelayedInitializer.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211PhyHeader_m.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211ControlInfo_m.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode_m.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211OfdmModulation.h \
+  /home/veins/src/inet/src/inet/physicallayer/base/packetlevel/ApskModulationBase.h \
+  /home/veins/src/inet/src/inet/common/ShortBitVector.h \
+  /home/veins/src/inet/src/inet/physicallayer/apskradio/bitlevel/ApskSymbol.h \
+  /home/veins/src/inet/src/inet/physicallayer/contract/bitlevel/ISymbol.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel_m.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Band.h \
+  /home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateSelection.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRx.h \
+  /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IContention.h \
   /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/ITx.h \
   /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/coordinationfunction/Dcf.h \
   /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/channelaccess/Dcaf.h \
@@ -299,122 +321,6 @@ NJSJammerApp/NJSJammerApp.h:
 
 /home/veins/src/inet/src/inet/common/INETDefs_m.h:
 
-/home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpSocket.h:
-
-/home/veins/src/inet/src/inet/networklayer/contract/IInterfaceTable.h:
-
-/home/veins/src/inet/src/inet/networklayer/common/InterfaceEntry.h:
-
-/home/veins/src/inet/src/inet/common/Simsignals.h:
-
-/home/veins/src/inet/src/inet/common/Simsignals_m.h:
-
-/home/veins/src/inet/src/inet/networklayer/common/InterfaceToken.h:
-
-/home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo.h:
-
-/home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo_m.h:
-
-/home/veins/src/inet/src/inet/networklayer/common/IpProtocolId_m.h:
-
-/home/veins/src/inet/src/inet/networklayer/common/L3Address_m.h:
-
-/home/veins/src/inet/src/inet/networklayer/common/L3AddressResolver.h:
-
-/home/veins/src/inet/src/inet/networklayer/contract/IRoutingTable.h:
-
-/home/veins/src/inet/src/inet/networklayer/contract/IRoute.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Mac.h:
-
-/home/veins/src/inet/src/inet/linklayer/base/MacProtocolBase.h:
-
-/home/veins/src/inet/src/inet/common/LayeredProtocolBase.h:
-
-/home/veins/src/inet/src/inet/queueing/contract/IPacketQueue.h:
-
-/home/veins/src/inet/src/inet/queueing/contract/IPacketCollection.h:
-
-/home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSink.h:
-
-/home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSource.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IDs.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Frame_m.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/Chunk_m.h:
-
-/home/veins/src/inet/src/inet/common/Units_m.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/BitCountChunk.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/ByteCountChunk.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/cPacketChunk.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/SequenceChunk.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/SliceChunk.h:
-
-/home/veins/src/inet/src/inet/common/packet/chunk/FieldsChunk.h:
-
-/home/veins/src/inet/src/inet/linklayer/common/FcsMode_m.h:
-
-/home/veins/src/inet/src/inet/linklayer/common/MacAddress_m.h:
-
-/home/veins/src/inet/src/inet/common/BitVector.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/common/Ieee80211Defs.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateControl.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211ModeSet.h:
-
-/home/veins/src/inet/src/inet/common/DelayedInitializer.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode.h:
-
-/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation.h:
-
-/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPrintableObject.h:
-
-/home/veins/src/inet/src/inet/physicallayer/base/packetlevel/PhysicalLayerDefs.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211PhyHeader_m.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211ControlInfo_m.h:
-
-/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/RadioControlInfo_m.h:
-
-/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation_m.h:
-
-/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IApskModulation.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode_m.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211OfdmModulation.h:
-
-/home/veins/src/inet/src/inet/physicallayer/base/packetlevel/ApskModulationBase.h:
-
-/home/veins/src/inet/src/inet/common/ShortBitVector.h:
-
-/home/veins/src/inet/src/inet/physicallayer/apskradio/bitlevel/ApskSymbol.h:
-
-/home/veins/src/inet/src/inet/physicallayer/contract/bitlevel/ISymbol.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel_m.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Band.h:
-
-/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateSelection.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRx.h:
-
-/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IContention.h:
-
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IRadio.h:
 
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IAntenna.h:
@@ -428,6 +334,10 @@ NJSJammerApp/NJSJammerApp.h:
 /home/veins/src/inet/src/inet/common/geometry/common/EulerAngles.h:
 
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IAntennaGain.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPrintableObject.h:
+
+/home/veins/src/inet/src/inet/physicallayer/base/packetlevel/PhysicalLayerDefs.h:
 
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPhysicalLayer.h:
 
@@ -477,6 +387,16 @@ NJSJammerApp/NJSJammerApp.h:
 
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IReceptionResult.h:
 
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/RadioControlInfo_m.h:
+
+/home/veins/src/inet/src/inet/common/Units_m.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation_m.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IModulation.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IApskModulation.h:
+
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ISnir.h:
 
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ISignal.h:
@@ -486,6 +406,152 @@ NJSJammerApp/NJSJammerApp.h:
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPhysicalLayerFrame.h:
 
 /home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ITransmitter.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IRadioMedium.h:
+
+/home/veins/src/inet/src/inet/environment/contract/IMaterial.h:
+
+/home/veins/src/inet/src/inet/environment/contract/IPhysicalEnvironment.h:
+
+/home/veins/src/inet/src/inet/common/IVisitor.h:
+
+/home/veins/src/inet/src/inet/common/geometry/common/RotationMatrix.h:
+
+/home/veins/src/inet/src/inet/environment/contract/IGround.h:
+
+/home/veins/src/inet/src/inet/environment/contract/IMaterialRegistry.h:
+
+/home/veins/src/inet/src/inet/environment/common/Material.h:
+
+/home/veins/src/inet/src/inet/environment/contract/IObjectCache.h:
+
+/home/veins/src/inet/src/inet/common/geometry/object/LineSegment.h:
+
+/home/veins/src/inet/src/inet/common/geometry/base/GeometricObjectBase.h:
+
+/home/veins/src/inet/src/inet/environment/contract/IPhysicalObject.h:
+
+/home/veins/src/inet/src/inet/common/geometry/base/ShapeBase.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IAnalogModel.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IBackgroundNoise.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/ICommunicationCache.h:
+
+/home/veins/src/inet/src/inet/common/IntervalTree.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IMediumLimitCache.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/INeighborCache.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IObstacleLoss.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPathLoss.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/packetlevel/IPropagation.h:
+
+/home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpSocket.h:
+
+/home/veins/src/inet/src/inet/networklayer/contract/IInterfaceTable.h:
+
+/home/veins/src/inet/src/inet/networklayer/common/InterfaceEntry.h:
+
+/home/veins/src/inet/src/inet/common/Simsignals.h:
+
+/home/veins/src/inet/src/inet/common/Simsignals_m.h:
+
+/home/veins/src/inet/src/inet/networklayer/common/InterfaceToken.h:
+
+/home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo.h:
+
+/home/veins/src/inet/src/inet/transportlayer/contract/udp/UdpControlInfo_m.h:
+
+/home/veins/src/inet/src/inet/networklayer/common/IpProtocolId_m.h:
+
+/home/veins/src/inet/src/inet/networklayer/common/L3Address_m.h:
+
+/home/veins/src/inet/src/inet/networklayer/common/L3AddressResolver.h:
+
+/home/veins/src/inet/src/inet/networklayer/contract/IRoutingTable.h:
+
+/home/veins/src/inet/src/inet/networklayer/contract/IRoute.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Mac.h:
+
+/home/veins/src/inet/src/inet/linklayer/base/MacProtocolBase.h:
+
+/home/veins/src/inet/src/inet/common/LayeredProtocolBase.h:
+
+/home/veins/src/inet/src/inet/queueing/contract/IPacketQueue.h:
+
+/home/veins/src/inet/src/inet/queueing/contract/IPacketCollection.h:
+
+/home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSink.h:
+
+/home/veins/src/inet/src/inet/queueing/contract/IPassivePacketSource.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IDs.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/Ieee80211Frame_m.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/Chunk_m.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/BitCountChunk.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/ByteCountChunk.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/cPacketChunk.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/SequenceChunk.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/SliceChunk.h:
+
+/home/veins/src/inet/src/inet/common/packet/chunk/FieldsChunk.h:
+
+/home/veins/src/inet/src/inet/linklayer/common/FcsMode_m.h:
+
+/home/veins/src/inet/src/inet/linklayer/common/MacAddress_m.h:
+
+/home/veins/src/inet/src/inet/common/BitVector.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/common/Ieee80211Defs.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateControl.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211ModeSet.h:
+
+/home/veins/src/inet/src/inet/common/DelayedInitializer.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211PhyHeader_m.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/packetlevel/Ieee80211ControlInfo_m.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/IIeee80211Mode_m.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211OfdmModulation.h:
+
+/home/veins/src/inet/src/inet/physicallayer/base/packetlevel/ApskModulationBase.h:
+
+/home/veins/src/inet/src/inet/common/ShortBitVector.h:
+
+/home/veins/src/inet/src/inet/physicallayer/apskradio/bitlevel/ApskSymbol.h:
+
+/home/veins/src/inet/src/inet/physicallayer/contract/bitlevel/ISymbol.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel_m.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Band.h:
+
+/home/veins/src/inet/src/inet/physicallayer/ieee80211/mode/Ieee80211Channel.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRateSelection.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IRx.h:
+
+/home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/IContention.h:
 
 /home/veins/src/inet/src/inet/linklayer/ieee80211/mac/contract/ITx.h:
 

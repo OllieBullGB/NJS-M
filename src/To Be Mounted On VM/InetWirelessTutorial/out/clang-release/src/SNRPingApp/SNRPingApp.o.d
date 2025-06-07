@@ -274,7 +274,14 @@
   /home/veins/src/inet/src/inet/networklayer/common/L3Address_m.h \
   /home/veins/src/inet/src/inet/networklayer/common/L3AddressResolver.h \
   /home/veins/src/inet/src/inet/networklayer/contract/IRoutingTable.h \
-  /home/veins/src/inet/src/inet/networklayer/contract/IRoute.h
+  /home/veins/src/inet/src/inet/networklayer/contract/IRoute.h \
+  SNRPingApp/../MLLoggingApp/MLLoggingApp.h \
+  SNRPingApp/../MLLoggingApp/../SNRPingApp/SNRReportElement.h \
+  SNRPingApp/../MLLoggingApp/../NJSJammerApp/NJSJammerApp.h \
+  SNRPingApp/../MLLoggingApp/MLNode.h \
+  SNRPingApp/../MLLoggingApp/../NJSState/NJSState.h \
+  SNRPingApp/../MLLoggingApp/./SNRMLModel.h \
+  SNRPingApp/../MLLoggingApp/SNRMLModel.h
 
 SNRPingApp/SNRPingApp.h:
 
@@ -829,3 +836,17 @@ SNRPingApp/../SNRLoggingApp/../NJSJammerApp/NJSJammerApp.h:
 /home/veins/src/inet/src/inet/networklayer/contract/IRoutingTable.h:
 
 /home/veins/src/inet/src/inet/networklayer/contract/IRoute.h:
+
+SNRPingApp/../MLLoggingApp/MLLoggingApp.h:
+
+SNRPingApp/../MLLoggingApp/../SNRPingApp/SNRReportElement.h:
+
+SNRPingApp/../MLLoggingApp/../NJSJammerApp/NJSJammerApp.h:
+
+SNRPingApp/../MLLoggingApp/MLNode.h:
+
+SNRPingApp/../MLLoggingApp/../NJSState/NJSState.h:
+
+SNRPingApp/../MLLoggingApp/./SNRMLModel.h:
+
+SNRPingApp/../MLLoggingApp/SNRMLModel.h:

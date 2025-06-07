@@ -17,6 +17,8 @@
 #define SNRLOGGINGAPP_SNRNODE_H_
 
 #include <cmath>
+#include <fstream>
+#include <iomanip>
 #include <omnetpp.h>
 #include "inet/common/INETDefs.h"
 #include "inet/common/INETUtils.h"
@@ -24,6 +26,7 @@
 
 #include "../NJSState/NJSState.h"
 #include "../SNRPingApp/SNRReportElement.h"
+#include "../NJSJammerApp/NJSJammerApp.h"
 
 
 class SNRNode {
@@ -34,6 +37,7 @@ public:
     virtual void record(SNRReportElement reportElement);
     virtual void constructTimelines(simtime_t start, simtime_t end, simtime_t logInterval);
     virtual void computeSNR(double thresholdMetricValue);
+
     const char* myNodeName;
 
     Coord position;

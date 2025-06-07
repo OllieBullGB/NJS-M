@@ -1,4 +1,5 @@
 #include "SNRPingApp.h"
+#include "../MLLoggingApp/MLLoggingApp.h"
 
 
 Define_Module(SNRPingApp);
@@ -101,18 +102,34 @@ void SNRPingApp::logState()
     double distanceToRSU = calculateDistanceTo("RSU");
     double distanceToJammer = calculateDistanceTo("jammer");
 
-    double rsuTransmissionStrength = 1 == 1 ? getTransmissionStrength(rsuRadioTransmissionPower, distanceToRSU, 2400000000, 0.0, 2.0, 299792458) : 1; // 2.4GHz
-    double jammerTransmissionStrength = 1 == 1 ? getTransmissionStrength(jammerRadioTransmissionPower, distanceToJammer, 2400000000, 0.0, 2.0, 299792458) : 1; // 2.4GHz
+    std::default_random_engine generator(simTime().raw());
+    std::normal_distribution<double> gaussianNoise(0.0, 0.05);  // ±5% noise
+    std::lognormal_distribution<double> lognormNoise(0.0, 0.1); // optional shadowing
 
-    EV_INFO << "RTS: " << rsuTransmissionStrength << ", JTS: " << jammerTransmissionStrength << endl;
+    double rsuBaseStrength = getTransmissionStrength(rsuRadioTransmissionPower, distanceToRSU, 2400000000, 0.0, 2.0, 299792458);
+    double jammerBaseStrength = getTransmissionStrength(jammerRadioTransmissionPower, distanceToJammer, 2400000000, 0.0, 2.0, 299792458);
 
-    // I need some way to simulate background transmissions/background energy (probably with some kind of normal map)
+    // Prevent zero values (flooring)
+    rsuBaseStrength = std::max(rsuBaseStrength, 1e-12);
+    jammerBaseStrength = std::max(jammerBaseStrength, 1e-12);
 
-    long double snr = rsuTransmissionStrength / (jammerTransmissionStrength + 0.00001);
+    // Multiplicative Gaussian noise (symmetric)
+    double rsuStrength = rsuBaseStrength * (1.0 + gaussianNoise(generator));
+    double jammerStrength = jammerBaseStrength * (1.0 + gaussianNoise(generator));
+
+    // Optional: multiplicative lognormal shadowing
+    rsuStrength *= lognormNoise(generator);
+    jammerStrength *= lognormNoise(generator);
+
+    // Add noise floor
+    double noiseFloor_mW = pow(10, -90 / 10.0);  // -90 dBm = ~1e-12 mW
+
+    double snr = rsuStrength / (jammerStrength + noiseFloor_mW);
+
     Coord position = getCurrentPosition();
     const char* myName = getParentModule()->getFullName();
 
-    SNRReportElement reportElement = SNRReportElement(position, rsuTransmissionStrength, jammerTransmissionStrength, snr, simTime(), myName);
+    SNRReportElement reportElement = SNRReportElement(position, rsuStrength, jammerStrength, snr, simTime(), myName);
 
     reportElements.push_back(reportElement);
 
@@ -132,9 +149,11 @@ void SNRPingApp::sendToRSU(std::vector<SNRReportElement> report, const char* rsu
     // locate the SNRLoggingApp on the object with name rsuName
     cModule* rsuModule = getSimulation()->getModuleByPath(rsuName);
     SNRLoggingApp* loggingApp = check_and_cast<SNRLoggingApp*>(rsuModule->getSubmodule("app", 3));
+    MLLoggingApp* ap = check_and_cast<MLLoggingApp*>(rsuModule->getSubmodule("app", 4));
 
     // push the contents of the report onto the back of the SNRLoggingApp's unprocessed reports
     loggingApp->addReport(report);
+    ap->addReport(report);
 }
 
 double SNRPingApp::getTransmissionStrength(double initialTransmissionPower, double distance, double frequency, double systemLoss = 1.0, double alpha = 2.0, double propagationSpeed = 299792458)

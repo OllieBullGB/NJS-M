@@ -208,6 +208,7 @@ void NJSDetectionZone::computeNJS(const char* rsuNode, std::vector<NJSState> rsu
 
         for (int slot=0; slot<timelineLength; slot++)
         {
+            EV_INFO << "slot[" << slot << "] " << timelines[getNodeTimelinePosition(vehicle)][slot] << endl;
             if (checkJammedNode(slot, vehicle, rsuNode, rsuTimeline, distanceToRSU, coverageRadiusRSU, debugIsActuallyBeingJammed))
             {
                 njsExp++;
